@@ -1,4 +1,357 @@
+/* Import Google Fonts - MUST COME FIRST */
+@import url("https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Oxanium:wght@200..800&display=swap");
+
+/* Prevent transition effects on initial page load */
+.preload * {
+    transition: none !important;
+    animation-duration: 0.001s !important;
+}
+
+/* Import Tailwind defaults */
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 @source "../views";
 @source "../../content";
+
+/* Integrate Hencove branding into tailwind theme */
+@theme {
+    /* Colors */
+    --color-white-500: #fefaf1;
+    --color-black-500: #262626;
+    --color-yellow-*: initial;
+    --color-yellow-500: #ffd623;
+    --color-yellow-400: #fff140;
+    --color-yellow-600: #ed9d23;
+    --color-tan-500: #f7ead2;
+    --color-blue-*: initial;
+    --color-blue-500: #6b8dfe;
+    --color-blue-600: #09467a;
+    --color-teal-*: initial;
+    --color-teal-500: #37ccbf;
+    --color-teal-600: #125e45;
+    --color-pink-*: initial;
+    --color-pink-500: #e673e4;
+    --color-pink-600: #851d5d;
+    --color-purple-*: initial;
+    --color-purple-500: #b18af8;
+    --color-purple-600: #572987;
+
+    /* Fonts */
+    --font-oxanium: "Oxanium", "sans-serif";
+    --font-bitter: "Bitter", "serif";
+}
+
+/* Custom CSS */
+:root {
+    --bg: var(--color-gray-950);
+    --border: hsl(180 10% 50% / 1);
+    --card: var(--color-gray-950);
+    --color: hsl(240 18% 80%);
+    --border-width: 2px;
+    --border-radius: 12px;
+}
+
+.glow-button {
+    position: relative;
+    border: var(--border-width) solid transparent;
+    background: var(--card);
+    background-attachment: fixed;
+    border-radius: var(--border-radius);
+    isolation: isolate;
+}
+
+.glow-button::before {
+    position: absolute;
+    inset: 0;
+    border: var(--border-width) solid transparent;
+    content: "";
+    border-radius: var(--border-radius);
+    pointer-events: none;
+    background: var(--border);
+    background-attachment: fixed;
+    mask:
+        linear-gradient(#0000, #0000),
+        conic-gradient(
+            from calc(((var(--start) + (var(--spread) * 0.25)) - (var(--spread) * 1.5)) * 1deg),
+            hsl(0 0% 100% / 0.15) 0deg,
+            white,
+            hsl(0 0% 100% / 0.15) calc(var(--spread) * 2.5deg));
+    mask-clip: padding-box, border-box;
+    mask-composite: intersect;
+    opacity: var(--active);
+    transition: opacity 1s;
+    z-index: -1;
+    --gradient: linear-gradient(to right, #22D3EE, #06B6D4);
+}
+
+.glow-button::after {
+    --bg-size: 100%;
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    background: var(--gradient);
+    background-attachment: fixed;
+    border-radius: var(--border-radius);
+    opacity: var(--active, 0);
+    transition: opacity 1s;
+    --alpha: 0;
+    inset: 0;
+    border: var(--border-width) solid transparent;
+    mask:
+        linear-gradient(#0000, #0000),
+        conic-gradient(from calc(((var(--start) + (var(--spread) * 0.25)) - (var(--spread) * 0.5)) * 1deg), #0000 0deg, #fff, #0000 calc(var(--spread) * 0.5deg));
+    filter: brightness(1.5);
+    mask-clip: padding-box, border-box;
+    mask-composite: intersect;
+    z-index: -1;
+}
+
+.proximity-glow {
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    filter: blur(calc(var(--blur) * 1px));
+}
+
+.proximity-glow::after,
+.proximity-glow::before {
+    --alpha: 0;
+    content: "";
+    background: var(--gradient);
+    background-attachment: fixed;
+    position: absolute;
+    inset: -5px;
+    border: 10px solid transparent;
+    border-radius: var(--border-radius);
+    mask:
+        linear-gradient(#0000, #0000),
+        conic-gradient(from calc((var(--start) - (var(--spread) * 0.5)) * 1deg), #000 0deg, #fff, #0000 calc(var(--spread) * 1deg));
+    mask-composite: intersect;
+    mask-clip: padding-box, border-box;
+    opacity: var(--active);
+    transition: opacity 1s;
+    --gradient: linear-gradient(to right, #22D3EE, #06B6D4);
+}
+
+.proximity-glow::before {
+    mask:
+        linear-gradient(#0000, #0000),
+        conic-gradient(
+            from calc(((var(--start) + (var(--spread) * 0.25)) - (var(--spread) * 1.5)) * 1deg),
+            hsl(0 0% 100% / 0.15) 0deg,
+            white,
+            hsl(0 0% 100% / 0.15) calc(var(--spread) * 2.5deg));
+}
+
+.proximity-glow::after {
+    mask:
+        linear-gradient(#0000, #0000),
+        conic-gradient(from calc(((var(--start) + (var(--spread) * 0.25)) - (var(--spread) * 0.5)) * 1deg), #0000 0deg, #fff, #0000 calc(var(--spread) * 0.5deg));
+    filter: brightness(1.5);
+}
+
+.proximity-button {
+    position: relative;
+    border: var(--border-width) solid transparent;
+    background: var(--card);
+    background-attachment: fixed;
+    border-radius: var(--border-radius);
+}
+
+.proximity-button::before {
+    position: absolute;
+    inset: 0;
+    border: var(--border-width) solid transparent;
+    content: "";
+    border-radius: var(--border-radius);
+    pointer-events: none;
+    background: var(--border);
+    background-attachment: fixed;
+    border-radius: var(--border-radius);
+    mask:
+        linear-gradient(#0000, #0000),
+        conic-gradient(
+            from calc(((var(--start) + (var(--spread) * 0.25)) - (var(--spread) * 1.5)) * 1deg),
+            hsl(0 0% 100% / 0.15) 0deg,
+            white,
+            hsl(0 0% 100% / 0.15) calc(var(--spread) * 2.5deg));
+    mask-clip: padding-box, border-box;
+    mask-composite: intersect;
+    opacity: var(--active);
+    transition: opacity 1s;
+}
+
+.proximity-button::after {
+    --bg-size: 100%;
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    background: var(--gradient);
+    background-attachment: fixed;
+    border-radius: var(--border-radius);
+    opacity: var(--active, 0);
+    transition: opacity 1s;
+    --alpha: 0;
+    inset: 0;
+    border: var(--border-width) solid transparent;
+    mask:
+        linear-gradient(#0000, #0000),
+        conic-gradient(from calc(((var(--start) + (var(--spread) * 0.25)) - (var(--spread) * 0.5)) * 1deg), #0000 0deg, #fff, #0000 calc(var(--spread) * 0.5deg));
+    filter: brightness(1.5);
+    mask-clip: padding-box, border-box;
+    mask-composite: intersect;
+}
+
+/* Work Category Effects */
+@keyframes htmlTag {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.0); }
+    100% { transform: scale(1); }
+}
+
+.work-category {
+    position: relative;
+    overflow: hidden;
+}
+
+.work-category.web-dev h2 {
+    font-family: 'Share Tech Mono', monospace;
+    transition: all 0.3s ease;
+    position: relative;
+    white-space: nowrap;
+}
+
+.work-category.web-dev:hover h2 {
+    color: #e34c26; /* HTML orange */
+}
+
+/* Remove the old HTML tag animations */
+.work-category.web-dev:hover h2::before,
+.work-category.web-dev:hover h2::after {
+    display: none;
+}
+
+/* Cursor effect */
+.work-category.web-dev h2::after {
+    content: '|';
+    position: absolute;
+    right: -0.5em;
+    color: #e34c26;
+    opacity: 0;
+    animation: cursor-blink 1s step-end infinite;
+}
+
+.work-category.web-dev:hover h2::after {
+    opacity: 1;
+}
+
+@keyframes cursor-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.work-category.motion-3d {
+    position: relative;
+    overflow: visible;
+}
+
+.work-category.motion-3d canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.work-category.motion-3d h2 {
+    position: relative;
+    z-index: 2;
+    opacity: 1;
+    pointer-events: none;
+}
+
+/* Grid Pattern */
+.bg-grid-pattern {
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: center center;
+}
+
+/* Enhance text gradients */
+.text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to right, #22D3EE, #06B6D4);
+}
+
+/* Interactive Button Example */
+.interactive-button {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.interactive-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(34, 211, 238, 0.2); /* Cyan glow */
+}
+
+.interactive-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 5px 10px rgba(34, 211, 238, 0.1);
+}
+
+/* Link with underline animation */
+.animated-link {
+    position: relative;
+    color: theme('colors.gray.400');
+    transition: color 0.3s ease;
+}
+
+.animated-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background: linear-gradient(to right, rgb(34 211 238), rgb(6 182 212));
+    transition: width 0.3s ease;
+}
+
+.animated-link:hover {
+    color: rgb(34 211 238);
+}
+
+.animated-link:hover::after {
+    width: 100%;
+}
+
+/* Card with hover effect */
+.hover-card {
+    transition: all 0.3s ease;
+}
+
+.hover-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 0 15px rgb(34 211 238 / 0.3); /* Using direct RGB values for cyan-400 */
+}
+
+.hover-card:active {
+    transform: translateY(-2px);
+}
+
+#particle-container canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 0;
+    pointer-events: none; /* So it doesn't block UI */
+}

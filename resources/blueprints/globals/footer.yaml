@@ -1,0 +1,97 @@
+title: Footer
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: branding
+        field:
+          type: section
+          display: Branding
+          icon: text
+      -
+        handle: brand_title_1
+        field:
+          type: text
+          display: 'Brand Title (First Line)'
+          default: 'Your brand,'
+      -
+        handle: brand_title_2
+        field:
+          type: text
+          display: 'Brand Title (Second Line)'
+          default: 'built better'
+      -
+        handle: brand_description
+        field:
+          type: textarea
+          display: 'Brand Description'
+          default: 'Crafting engaging digital experiences that combine creativity with technical excellence.'
+      -
+        handle: navigation
+        field:
+          type: section
+          display: Navigation
+          icon: link
+      -
+        handle: quick_links
+        field:
+          type: grid
+          display: 'Quick Links'
+          fields:
+            -
+              handle: label
+              field:
+                type: text
+                display: Label
+            -
+              handle: url
+              field:
+                type: text
+                display: URL
+      -
+        handle: contact
+        field:
+          type: section
+          display: Contact
+          icon: mail
+      -
+        handle: email
+        field:
+          type: text
+          display: Email
+          default: 'hello@yourdomain.com'
+      -
+        handle: phone
+        field:
+          type: text
+          display: Phone
+          default: '+1 (555) 123-4567'
+      -
+        handle: social
+        field:
+          type: section
+          display: Social Links
+          icon: share
+      -
+        handle: social_links
+        field:
+          type: grid
+          display: 'Social Links'
+          fields:
+            -
+              handle: platform
+              field:
+                type: text
+                display: Platform
+            -
+              handle: url
+              field:
+                type: text
+                display: URL
+      -
+        handle: copyright_name
+        field:
+          type: text
+          display: 'Copyright Name'
+          default: 'Your Name' 

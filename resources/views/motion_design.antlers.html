@@ -1,0 +1,84 @@
+<!-- Motion Design Projects -->
+<div class="bg-gray-950 min-h-screen">
+    <!-- Hero Section -->
+    <section class="relative py-24 overflow-hidden">
+        <!-- Grid background -->
+        <div class="absolute inset-0 bg-grid-pattern opacity-50 pointer-events-none"></div>
+        
+        <!-- Gradient overlay -->
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-cyan-600/20 to-150% pointer-events-none"></div>
+
+        <div class="relative mx-auto max-w-7xl px-6">
+            <h1 class="text-6xl font-bold mb-8 font-oxanium">
+                <span class="text-white/90">Motion</span> 
+                <span class="bg-gradient-to-r from-cyan-400 to-sky-600 text-transparent bg-clip-text">Design</span>
+            </h1>
+            <p class="text-xl text-gray-400 max-w-3xl mb-12 font-oxanium">
+                Bringing ideas to life through animation and visual storytelling.
+            </p>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="relative py-16">
+        <div class="mx-auto max-w-7xl px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                {{ collection:motion_design }}
+                    <div class="group relative">
+                        <!-- Project Preview -->
+                        <div class="aspect-video rounded-3xl overflow-hidden bg-gray-900 hover-card">
+                            {{ preview_animation }}
+                                <video 
+                                    class="w-full h-full object-cover"
+                                    autoplay
+                                    loop
+                                    muted
+                                    playsinline
+                                >
+                                    <source src="{{ url }}" type="video/{{ extension }}">
+                                </video>
+                            {{ /preview_animation }}
+                        </div>
+
+                        <!-- Project Info -->
+                        <div class="mt-6">
+                            <h2 class="text-2xl font-bold text-white mb-3 font-oxanium">{{ title }}</h2>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                {{ software_used }}
+                                    <span class="px-3 py-1 bg-cyan-500/10 text-cyan-400 rounded-full text-sm">{{ value }}</span>
+                                {{ /software_used }}
+                            </div>
+                            <p class="text-gray-400">{{ description | truncate:150 }}</p>
+                        </div>
+
+                        <!-- Style Frames -->
+                        {{ if style_frames }}
+                            <div class="mt-6 grid grid-cols-5 gap-2">
+                                {{ style_frames }}
+                                    <div class="aspect-square rounded-lg overflow-hidden">
+                                        <img src="{{ url }}" alt="Style frame" class="w-full h-full object-cover">
+                                    </div>
+                                {{ /style_frames }}
+                            </div>
+                        {{ /if }}
+
+                        <!-- Color Palette -->
+                        {{ if color_palette }}
+                            <div class="mt-6">
+                                <h3 class="text-sm font-medium text-gray-400 mb-3">Color Palette</h3>
+                                <div class="flex gap-2">
+                                    {{ color_palette }}
+                                        <div class="flex flex-col items-center">
+                                            <div class="w-8 h-8 rounded-full" style="background-color: {{ color }};"></div>
+                                            <span class="text-xs text-gray-500 mt-1">{{ description }}</span>
+                                        </div>
+                                    {{ /color_palette }}
+                                </div>
+                            </div>
+                        {{ /if }}
+                    </div>
+                {{ /collection:motion_design }}
+            </div>
+        </div>
+    </section>
+</div> 

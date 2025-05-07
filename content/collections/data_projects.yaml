@@ -1,0 +1,12 @@
+title: 'Data Projects'
+template: data_projects
+layout: layout
+mount: data_projects
+taxonomies:
+  - tools_used
+revisions: false
+route: '/data-projects/{slug}'
+sort_dir: desc
+date_behavior:
+  past_date: public
+  future_date: private 

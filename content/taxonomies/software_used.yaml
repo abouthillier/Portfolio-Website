@@ -1,0 +1,5 @@
+title: 'Software Used'
+preview_targets:
+  -
+    label: Entry
+    url: '{permalink}' 

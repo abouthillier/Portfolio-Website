@@ -1,0 +1,83 @@
+<!-- Data Projects -->
+<div class="bg-gray-950 min-h-screen">
+    <!-- Hero Section -->
+    <section class="relative py-24 overflow-hidden">
+        <!-- Grid background -->
+        <div class="absolute inset-0 bg-grid-pattern opacity-50 pointer-events-none"></div>
+        
+        <!-- Gradient overlay -->
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-cyan-600/20 to-150% pointer-events-none"></div>
+
+        <div class="relative mx-auto max-w-7xl px-6">
+            <h1 class="text-6xl font-bold mb-8 font-oxanium">
+                <span class="text-white/90">Data</span> 
+                <span class="bg-gradient-to-r from-cyan-400 to-sky-600 text-transparent bg-clip-text">Projects</span>
+            </h1>
+            <p class="text-xl text-gray-400 max-w-3xl mb-12 font-oxanium">
+                Transforming complex data into meaningful insights and visualizations.
+            </p>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="relative py-16">
+        <div class="mx-auto max-w-7xl px-6">
+            {{ collection:data_projects }}
+                <div class="mb-24 last:mb-0">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <!-- Project Visualization -->
+                        <div class="relative aspect-square rounded-3xl overflow-hidden bg-gray-900 hover-card">
+                            {{ featured_visualization }}
+                                <img src="{{ url }}" alt="{{ alt }}" class="w-full h-full object-cover">
+                            {{ /featured_visualization }}
+                        </div>
+
+                        <!-- Project Info -->
+                        <div>
+                            <h2 class="text-3xl font-bold text-white mb-4 font-oxanium">{{ title }}</h2>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                {{ tools_used }}
+                                    <span class="px-3 py-1 bg-cyan-500/10 text-cyan-400 rounded-full text-sm">{{ value }}</span>
+                                {{ /tools_used }}
+                            </div>
+                            <div class="prose prose-invert max-w-none mb-6">
+                                {{ description }}
+                            </div>
+                            <div class="text-gray-400">
+                                <strong class="text-white">Data Source:</strong> {{ data_source }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Key Findings -->
+                    {{ if key_findings }}
+                        <div class="mt-16">
+                            <h3 class="text-2xl font-bold text-white mb-8 font-oxanium">Key Findings</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                {{ key_findings }}
+                                    <div class="bg-gray-900 rounded-2xl p-6 hover-card">
+                                        <h4 class="text-xl font-bold text-white mb-4">{{ finding }}</h4>
+                                        <p class="text-gray-400 mb-4">{{ description }}</p>
+                                        {{ if visualization }}
+                                            <div class="aspect-square rounded-xl overflow-hidden">
+                                                <img src="{{ visualization:url }}" alt="{{ finding }}" class="w-full h-full object-cover">
+                                            </div>
+                                        {{ /if }}
+                                    </div>
+                                {{ /key_findings }}
+                            </div>
+                        </div>
+                    {{ /if }}
+
+                    <!-- Methodology -->
+                    <div class="mt-16">
+                        <h3 class="text-2xl font-bold text-white mb-6 font-oxanium">Methodology</h3>
+                        <div class="prose prose-invert max-w-none">
+                            {{ methodology }}
+                        </div>
+                    </div>
+                </div>
+            {{ /collection:data_projects }}
+        </div>
+    </section>
+</div> 

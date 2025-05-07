@@ -1,0 +1,70 @@
+<!-- Header Navigation -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-gray-950/80 backdrop-blur-lg border-b border-gray-800/50">
+    <div class="mx-auto max-w-7xl px-6">
+        <nav class="flex items-center justify-between h-20">
+            <!-- Logo/Home Link -->
+            <a href="/" class="text-2xl font-bold font-oxanium text-white hover:text-cyan-400 transition-colors">
+                Alex<span class="text-cyan-400">B</span>
+            </a>
+
+            <!-- Main Navigation -->
+            <ul class="flex items-center space-x-8">
+                <li>
+                    <a 
+                        href="/work/web-dev" 
+                        class="group flex items-center text-lg font-oxanium {{ if segment_1 == 'work' && segment_2 == 'web-dev' }}text-cyan-400{{ else }}text-gray-400 hover:text-white{{ /if }} transition-colors"
+                    >
+                        Web Development
+                        {{ if segment_1 == 'work' && segment_2 == 'web-dev' }}
+                            <div class="h-1 w-full bg-cyan-400 absolute bottom-0 left-0"></div>
+                        {{ /if }}
+                    </a>
+                </li>
+                <li>
+                    <a 
+                        href="/work/motion" 
+                        class="group flex items-center text-lg font-oxanium {{ if segment_1 == 'work' && segment_2 == 'motion' }}text-cyan-400{{ else }}text-gray-400 hover:text-white{{ /if }} transition-colors"
+                    >
+                        Motion Design
+                        {{ if segment_1 == 'work' && segment_2 == 'motion' }}
+                            <div class="h-1 w-full bg-cyan-400 absolute bottom-0 left-0"></div>
+                        {{ /if }}
+                    </a>
+                </li>
+                <li>
+                    <a 
+                        href="/work/data" 
+                        class="group flex items-center text-lg font-oxanium {{ if segment_1 == 'work' && segment_2 == 'data' }}text-cyan-400{{ else }}text-gray-400 hover:text-white{{ /if }} transition-colors"
+                    >
+                        Data Projects
+                        {{ if segment_1 == 'work' && segment_2 == 'data' }}
+                            <div class="h-1 w-full bg-cyan-400 absolute bottom-0 left-0"></div>
+                        {{ /if }}
+                    </a>
+                </li>
+                <li>
+                    <a 
+                        href="/work/video" 
+                        class="group flex items-center text-lg font-oxanium {{ if segment_1 == 'work' && segment_2 == 'video' }}text-cyan-400{{ else }}text-gray-400 hover:text-white{{ /if }} transition-colors"
+                    >
+                        Video Projects
+                        {{ if segment_1 == 'work' && segment_2 == 'video' }}
+                            <div class="h-1 w-full bg-cyan-400 absolute bottom-0 left-0"></div>
+                        {{ /if }}
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Contact Button -->
+            <a 
+                href="/#contact-section" 
+                class="glow-button px-6 py-2 rounded-full bg-cyan-500 text-white hover:bg-cyan-600 transition-colors font-oxanium"
+            >
+                Contact
+            </a>
+        </nav>
+    </div>
+</header>
+
+<!-- Spacer to prevent content from hiding under fixed header -->
+<div class="h-20"></div> 

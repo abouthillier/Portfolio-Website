@@ -1,0 +1,65 @@
+title: 'Web Development Project'
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          validate:
+            - required
+      -
+        handle: featured_image
+        field:
+          type: assets
+          container: assets
+          max_files: 1
+          mode: grid
+          required: true
+      -
+        handle: description
+        field:
+          type: markdown
+          display: Description
+          required: true
+      -
+        handle: technologies
+        field:
+          type: tags
+          display: Technologies Used
+          required: true
+      -
+        handle: github_url
+        field:
+          type: text
+          display: GitHub URL
+      -
+        handle: live_url
+        field:
+          type: text
+          display: Live Site URL
+      -
+        handle: completion_date
+        field:
+          type: date
+          display: Completion Date
+          required: true
+      -
+        handle: features
+        field:
+          type: grid
+          display: Key Features
+          add_row: 'Add Feature'
+          fields:
+            -
+              handle: feature
+              field:
+                type: text
+                display: Feature
+            -
+              handle: description
+              field:
+                type: textarea
+                display: Description 

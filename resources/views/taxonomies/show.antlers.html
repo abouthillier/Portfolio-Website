@@ -1,0 +1,65 @@
+<!-- Taxonomy Page -->
+<div class="bg-gray-950 min-h-screen">
+    <!-- Hero Section -->
+    <section class="relative py-24 overflow-hidden">
+        <!-- Grid background -->
+        <div class="absolute inset-0 bg-grid-pattern opacity-50 pointer-events-none"></div>
+        
+        <!-- Gradient overlay -->
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent from-50% to-cyan-600/20 to-150% pointer-events-none"></div>
+
+        <div class="relative mx-auto max-w-7xl px-6">
+            <h1 class="text-6xl font-bold mb-8 font-oxanium">
+                <span class="text-white/90">{{ title }}</span>
+                <span class="bg-gradient-to-r from-cyan-400 to-sky-600 text-transparent bg-clip-text">{{ taxonomy:title }}</span>
+            </h1>
+            <p class="text-xl text-gray-400 max-w-3xl mb-12 font-oxanium">
+                Browse all {{ collection:title | lower }} tagged with {{ title }}.
+            </p>
+        </div>
+    </section>
+
+    <!-- Content Grid -->
+    <section class="relative py-16">
+        <div class="mx-auto max-w-7xl px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {{ entries }}
+                    <div class="bg-gray-900 rounded-3xl overflow-hidden hover-card">
+                        {{ if featured_image }}
+                            <div class="aspect-video overflow-hidden">
+                                <img src="{{ featured_image:url }}" alt="{{ featured_image:alt }}" class="w-full h-full object-cover">
+                            </div>
+                        {{ elseif preview_animation }}
+                            <div class="aspect-video overflow-hidden">
+                                <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                                    <source src="{{ preview_animation:url }}" type="video/{{ preview_animation:extension }}">
+                                </video>
+                            </div>
+                        {{ elseif featured_visualization }}
+                            <div class="aspect-video overflow-hidden">
+                                <img src="{{ featured_visualization:url }}" alt="{{ featured_visualization:alt }}" class="w-full h-full object-cover">
+                            </div>
+                        {{ elseif video_file }}
+                            <div class="aspect-video overflow-hidden">
+                                <video class="w-full h-full object-cover" poster="{{ thumbnail:url }}" loop muted playsinline>
+                                    <source src="{{ video_file:url }}" type="video/{{ video_file:extension }}">
+                                </video>
+                            </div>
+                        {{ /if }}
+
+                        <div class="p-6">
+                            <h2 class="text-2xl font-bold text-white mb-4 font-oxanium">{{ title }}</h2>
+                            <p class="text-gray-400 mb-4">{{ description | truncate:150 }}</p>
+                            <a href="{{ url }}" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 transition-colors">
+                                View Project
+                                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                {{ /entries }}
+            </div>
+        </div>
+    </section>
+</div> 

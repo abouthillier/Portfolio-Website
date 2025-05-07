@@ -1,0 +1,31 @@
+title: footer
+blueprint: footer
+data: 
+  brand_title_1: 'Alex'
+  brand_title_2: 'Bouthillier'
+  brand_description: 'Crafting engaging digital experiences that combine creativity with technical excellence.'
+  quick_links:
+    -
+      label: Home
+      url: '#'
+    -
+      label: About
+      url: '#'
+    -
+      label: Work
+      url: '#'
+    -
+      label: Contact
+      url: '#'
+  email: 'alexbouthillier@gmail.com'
+  social_links:
+    -
+      platform: Instagram
+      url: 'https://www.instagram.com/alexbouthillier/'
+    -
+      platform: LinkedIn
+      url: 'https://www.linkedin.com/in/alexbouthillier/'
+    -
+      platform: GitHub
+      url: 'https://github.com/alexbouthillier'
+  copyright_name: 'Alex Bouthillier' 

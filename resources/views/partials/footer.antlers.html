@@ -1,0 +1,68 @@
+<footer class="bg-gray-950 text-white relative overflow-hidden font-oxanium">
+    <!-- Grid background -->
+    <div class="absolute inset-0 bg-grid-pattern opacity-50 pointer-events-none"></div>
+    
+    <!-- Gradient overlay -->
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-600/10 to-sky-600/20 pointer-events-none"></div>
+
+    <div class="relative mx-auto max-w-6xl px-6 py-24">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+            <!-- Brand Column -->
+            <div>
+                <h2 class="text-2xl font-bold mb-6">
+                    <span class="text-white/90">{{ footer:brand_title_1 }}</span>
+                    <span class="bg-gradient-to-r from-cyan-400 to-sky-600 text-transparent bg-clip-text">{{ footer:brand_title_2 }}</span>
+                </h2>
+                <p class="text-gray-400">{{ footer:brand_description }}</p>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h3 class="text-lg font-semibold mb-6">Quick Links</h3>
+                <ul class="space-y-4">
+                    {{ footer:quick_links }}
+                        <li>
+                            <a href="{{ url }}" class="text-gray-400 hover:text-cyan-400 transition-colors">{{ label }}</a>
+                        </li>
+                    {{ /footer:quick_links }}
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div>
+                <h3 class="text-lg font-semibold mb-6">Contact</h3>
+                <ul class="space-y-4 text-gray-400">
+                    <li>
+                        <a href="mailto:{{ footer:email }}" class="hover:text-cyan-400 transition-colors">
+                            {{ footer:email }}
+                        </a>
+                    </li>
+                    <li>{{ footer:phone }}</li>
+                </ul>
+            </div>
+
+            <!-- Social Links -->
+            <div>
+                <h3 class="text-lg font-semibold mb-6">Follow Me</h3>
+                <ul class="space-y-4">
+                    {{ footer:social_links }}
+                        <li>
+                            <a href="{{ url }}" class="text-gray-400 hover:text-cyan-400 transition-colors">
+                                {{ platform }}
+                            </a>
+                        </li>
+                    {{ /footer:social_links }}
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="pt-8 border-t border-gray-800">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">
+                    © {{ now format="Y" }} {{ footer:copyright_name }}. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </div>
+</footer> 

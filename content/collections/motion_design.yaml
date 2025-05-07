@@ -1,0 +1,12 @@
+title: 'Motion Design'
+template: motion_design
+layout: layout
+mount: motion_design
+taxonomies:
+  - software_used
+revisions: false
+route: '/motion-design/{slug}'
+sort_dir: desc
+date_behavior:
+  past_date: public
+  future_date: private 

@@ -1,0 +1,68 @@
+title: 'Data Project'
+sections:
+  main:
+    display: Main
+    fields:
+      -
+        handle: title
+        field:
+          type: text
+          required: true
+          validate:
+            - required
+      -
+        handle: featured_visualization
+        field:
+          type: assets
+          container: assets
+          max_files: 1
+          mode: grid
+          required: true
+      -
+        handle: description
+        field:
+          type: markdown
+          display: Description
+          required: true
+      -
+        handle: tools_used
+        field:
+          type: tags
+          display: Tools & Technologies
+          required: true
+      -
+        handle: data_source
+        field:
+          type: text
+          display: Data Source
+          required: true
+      -
+        handle: key_findings
+        field:
+          type: grid
+          display: Key Findings
+          add_row: 'Add Finding'
+          fields:
+            -
+              handle: finding
+              field:
+                type: text
+                display: Finding
+            -
+              handle: description
+              field:
+                type: textarea
+                display: Description
+            -
+              handle: visualization
+              field:
+                type: assets
+                container: assets
+                max_files: 1
+                mode: grid
+      -
+        handle: methodology
+        field:
+          type: markdown
+          display: Methodology
+          required: true 
