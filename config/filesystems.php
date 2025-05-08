@@ -70,6 +70,15 @@ return [
             'report' => false,
         ],
 
+        'build' => [
+            'driver' => 'local',
+            'root' => public_path('build'),
+            'url' => '/build',
+            'visibility' => 'public',
+            'throw' => false,
+            'report' => false,
+        ],
+
     ],
 
     /*
