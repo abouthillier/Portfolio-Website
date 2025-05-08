@@ -223,4 +223,23 @@ return [
 
     'svg_sanitization_on_upload' => true,
 
+
+    /*
+    |--------------------------------------------------------------------------
+    | Asset Containers
+    |--------------------------------------------------------------------------
+    |
+    | Configure the asset containers that will be available in the Control Panel.
+    | Each container can have its own disk, URL, and visibility settings.
+    |
+    */
+
+    'containers' => [
+        'build' => [
+            'disk' => 'build',
+            'url' => '/build',
+            'visibility' => 'public',
+        ],
+    ],
+
 ];
