@@ -18,12 +18,22 @@ window.addEventListener("load", () => {
 // Initialize particle effect
 const particleContainer = document.getElementById('particle-container');
 if (particleContainer) {
-    new ParticleEffect(particleContainer);
+    new ParticleEffect(particleContainer, {
+        nodeCount: 40,
+        lineDistance: 200,
+        useLogos: false,
+        logoSize: 40
+    });
 }
 
 const particleContainerCapabilities = document.getElementById('particle-container-capabilities');
 if (particleContainerCapabilities) {
-    new ParticleEffect(particleContainerCapabilities);
+    new ParticleEffect(particleContainerCapabilities, {
+        nodeCount: 40,
+        lineDistance: 200,
+        useLogos: true,
+        logoSize: 40
+    });
 }
 
 // Initialize tabs

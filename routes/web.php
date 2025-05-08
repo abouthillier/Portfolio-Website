@@ -39,3 +39,5 @@ Route::statamic('tools/{slug}', 'taxonomies.tools_used', [
 Route::statamic('roles/{slug}', 'taxonomies.role', [
     'title' => 'Roles'
 ]);
+
+Route::get('/api/logos', [App\Http\Controllers\LogoController::class, 'index']);
