@@ -60,12 +60,16 @@ php artisan route:clear
 chown -R www-data:www-data public
 chmod -R 775 public
 
+# Publish Statamic assets
+sudo -u www-data php artisan vendor:publish --tag=statamic-cp --force
+sudo -u www-data php artisan vendor:publish --tag=statamic-assets --force
+
 # Run migrations
 php artisan migrate --force
 
 # Set proper permissions
-chown -R www-data:www-data storage bootstrap/cache public/build
-chmod -R 775 storage bootstrap/cache public/build
+chown -R www-data:www-data storage bootstrap/cache public/build public/vendor
+chmod -R 775 storage bootstrap/cache public/build public/vendor
 
 # Log completion
 echo "Deployment completed successfully" 
