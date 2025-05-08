@@ -15,5 +15,9 @@ export default defineConfig({
     ],
     optimizeDeps: {
         include: ['three']
+    },
+    server: {
+        port: 5174,
+        strictPort: true,
     }
 });

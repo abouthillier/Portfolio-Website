@@ -58,6 +58,30 @@
     background-attachment: fixed;
     border-radius: var(--border-radius);
     isolation: isolate;
+    /* display: inline-block; */
+}
+
+.glow-button span {
+    position: relative;
+    display: inline-block;
+}
+
+.glow-button span::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-white-500);
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+    transform-origin: right;
+}
+
+.glow-button:hover span::after {
+    transform: scaleX(1);
+    transform-origin: left;
 }
 
 .glow-button::before {
@@ -202,74 +226,9 @@
     mask-composite: intersect;
 }
 
-/* Work Category Effects */
-@keyframes htmlTag {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.0); }
-    100% { transform: scale(1); }
-}
-
 .work-category {
     position: relative;
     overflow: hidden;
-}
-
-.work-category.web-dev h2 {
-    font-family: 'Share Tech Mono', monospace;
-    transition: all 0.3s ease;
-    position: relative;
-    white-space: nowrap;
-}
-
-.work-category.web-dev:hover h2 {
-    color: #e34c26; /* HTML orange */
-}
-
-/* Remove the old HTML tag animations */
-.work-category.web-dev:hover h2::before,
-.work-category.web-dev:hover h2::after {
-    display: none;
-}
-
-/* Cursor effect */
-.work-category.web-dev h2::after {
-    content: '|';
-    position: absolute;
-    right: -0.5em;
-    color: #e34c26;
-    opacity: 0;
-    animation: cursor-blink 1s step-end infinite;
-}
-
-.work-category.web-dev:hover h2::after {
-    opacity: 1;
-}
-
-@keyframes cursor-blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-}
-
-.work-category.motion-3d {
-    position: relative;
-    overflow: visible;
-}
-
-.work-category.motion-3d canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    pointer-events: none;
-}
-
-.work-category.motion-3d h2 {
-    position: relative;
-    z-index: 2;
-    opacity: 1;
-    pointer-events: none;
 }
 
 /* Grid Pattern */
@@ -295,12 +254,12 @@
 }
 
 .interactive-button:hover {
-    transform: translateY(-2px);
+    /* transform: translateY(-2px); */
     box-shadow: 0 10px 20px rgba(34, 211, 238, 0.2); /* Cyan glow */
 }
 
 .interactive-button:active {
-    transform: translateY(1px);
+    /* transform: translateY(1px); */
     box-shadow: 0 5px 10px rgba(34, 211, 238, 0.1);
 }
 
@@ -336,14 +295,14 @@
 }
 
 .hover-card:hover {
-    transform: translateY(-5px);
+    /* transform: translateY(-5px); */
     box-shadow: 
         0 20px 25px -5px rgba(0, 0, 0, 0.1),
         0 0 15px rgb(34 211 238 / 0.3); /* Using direct RGB values for cyan-400 */
 }
 
 .hover-card:active {
-    transform: translateY(-2px);
+    /* transform: translateY(-2px); */
 }
 
 #particle-container canvas {

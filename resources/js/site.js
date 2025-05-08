@@ -6,6 +6,8 @@ import Text3DEffect from './components/Text3DEffect';
 import ContactForm from './components/ContactForm';
 import gsap from "gsap";
 import { MotionPathPlugin, ScrollTrigger } from "gsap/all";
+import MatrixConsole from './components/MatrixConsole';
+import TerminalLogger from './components/TerminalLogger';
 gsap.registerPlugin(MotionPathPlugin, ScrollTrigger);
 
 // Allow transition animations once page is fully loaded
@@ -49,54 +51,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize typewriter effect
     document.querySelectorAll('.work-category.web-dev').forEach(category => {
-        const title = category.querySelector('h2');
-        const originalText = title.textContent;
-        const tagText = `<${originalText.toLowerCase().replace(/\s+/g, '-')}/>`; // Convert "Web Development" to "<web-development/>"
-        let isAnimating = false;
-
-        async function animateText(fromText, toText) {
-            if (isAnimating) return;
-            isAnimating = true;
-            
-            const maxLength = Math.max(fromText.length, toText.length);
-            
-            // Animate character by character
-            for (let i = 0; i <= maxLength; i++) {
-                // Get current segments of both texts
-                const currentFrom = fromText.slice(0, fromText.length - i);
-                const currentTo = toText.slice(0, i);
-                
-                // Combine them with a subtle fade effect using opacity
-                title.innerHTML = `
-                    <span style="opacity: ${1 - i/maxLength}">${currentFrom}</span>
-                    <span style="opacity: ${i/maxLength}">${currentTo}</span>
-                `;
-                
-                await new Promise(resolve => setTimeout(resolve, 30));
-            }
-            
-            title.textContent = toText;
-            isAnimating = false;
-        }
+ 
+        // Create terminal container
+        const terminalContainer = document.querySelector('.terminal-container');
+        
+        const terminalLogger = new TerminalLogger(terminalContainer);
 
         // Start animation on hover
         category.addEventListener('mouseenter', () => {
-            animateText(originalText, tagText);
+            terminalContainer.classList.add('opacity-100');
         });
 
         // Reset text when mouse leaves
         category.addEventListener('mouseleave', () => {
-            animateText(tagText, originalText);
+            terminalContainer.classList.remove('opacity-100');
+        });
+
+        // Track mouse movement
+        category.addEventListener('mousemove', (e) => {
+            const rect = category.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            terminalLogger.logMousePosition(x, y);
         });
     });
     document.querySelectorAll('.work-category.data').forEach(category => {
-        const spline = document.querySelector('spline-viewer');
+        const matrixContainer = document.querySelector('.matrix-container');
+        
+        const matrixConsole = new MatrixConsole(matrixContainer);
+        
         category.addEventListener('mouseenter', () => {
-            spline.classList.add('opacity-100');
+            matrixContainer.classList.add('opacity-100');
         });
 
         category.addEventListener('mouseleave', () => {
-            spline.classList.remove('opacity-100');
+            matrixContainer.classList.remove('opacity-100');
         });
     });
     document.querySelectorAll('.work-category.video').forEach(category => {
@@ -108,15 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
         category.addEventListener('mouseleave', () => {
             video.classList.remove('opacity-100');
         });
-        // Create play button icon
-        const playIcon = document.createElement('div');
-        playIcon.className = 'play-icon opacity-0 transition-opacity duration-300 ml-2';
-        playIcon.innerHTML = `
-            <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-        `;
 
         // Find the title element and wrap it in a flex container
         const titleElement = category.querySelector('h3, h2, h1');

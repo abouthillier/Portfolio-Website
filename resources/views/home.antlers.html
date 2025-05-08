@@ -17,7 +17,7 @@
 
 <section class="relative min-h-screen bg-gray-950 text-white py-32 overflow-hidden border-50 border-gray-950 rounded-[150px]">
     <!-- Particle effect container with reduced opacity -->
-    <div id="particle-container" class="absolute inset-0 z-10"></div>
+    <div id="particle-container" class="absolute inset-0 z-8"></div>
 
     <!-- Blue gradient overlay -->
     <div class="absolute inset-0 bg-gradient-to-b from-transparent from-60% via-cyan-600 via-95% to-cyan-200"></div>
@@ -70,8 +70,8 @@
   />
   Your browser does not support the video tag.
 </video>
-<spline-viewer url="https://prod.spline.design/R2wA-Aoe4PkMG9yT/scene.splinecode" class="absolute inset-0 w-full h-full opacity-0 transition-opacity duration-300"></spline-viewer>
-
+<div class="matrix-container absolute inset-0 w-full h-full opacity-0 transition-opacity duration-300"></div>
+<div class="terminal-container absolute inset-0 w-full h-full opacity-0 transition-opacity duration-300"></div>
 <!-- Gradient Overlays -->
 <div class="absolute inset-0 bg-linear-to-t from-gray-950 from-0% via-transparent via-5% via-transparent via-95% to-gray-950 to-100% pointer-events-none"></div>
 
@@ -84,7 +84,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             {{ work_categories }}
                 <article>
-                    <a href="{{ url }}" class="glow-button block rounded-xl p-16 h-full transition-transform hover:-translate-y-1 relative work-category 
+                    <a href="{{ url }}" class="glow-button block rounded-xl p-16 h-full relative work-category 
                         {{ if title == 'Web Development' }}web-dev{{ 
                             elseif title == 'Motion Design' }}motion{{
                             elseif title == 'Data Visualization' }}data{{
