@@ -18,7 +18,10 @@ git pull origin main
 mkdir -p /var/www/.cache/composer
 chown -R www-data:www-data /var/www/.cache/composer
 
-# Install/update Composer dependencies
+# Remove Statamic CMS directory to force re-download
+rm -rf vendor/statamic/cms
+
+# Install/update Composer dependencies with plugins enabled
 sudo -u www-data composer install --no-interaction --no-dev --optimize-autoloader
 
 # Ensure node_modules directory exists and has correct permissions
