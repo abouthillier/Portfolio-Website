@@ -53,22 +53,16 @@ php artisan config:clear
 php artisan view:clear
 php artisan route:clear
 
-# Clear any existing published assets
-rm -rf public/vendor
-
-# Ensure proper permissions for asset publishing
+# Ensure proper permissions for all public directories
 chown -R www-data:www-data public
 chmod -R 775 public
-
-# Publish Statamic assets with proper permissions
-sudo -u www-data php artisan vendor:publish --tag=statamic-cp --force
 
 # Run migrations
 php artisan migrate --force
 
 # Set proper permissions
-chown -R www-data:www-data storage bootstrap/cache public/build public/vendor
-chmod -R 775 storage bootstrap/cache public/build public/vendor
+chown -R www-data:www-data storage bootstrap/cache public/build
+chmod -R 775 storage bootstrap/cache public/build
 
 # Log completion
 echo "Deployment completed successfully" 
