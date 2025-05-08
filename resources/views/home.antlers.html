@@ -15,7 +15,7 @@
   </svg>
 </div> -->
 
-<section class="relative min-h-screen bg-gray-950 text-white py-32 overflow-hidden border-50 border-gray-950 rounded-[150px]">
+<section class="relative min-h-screen bg-gray-950 text-white py-24 md:py-32 overflow-hidden md:border-50 md:border-gray-950 md:rounded-[150px]">
     <!-- Particle effect container with reduced opacity -->
     <div id="particle-container" class="absolute inset-0 z-8"></div>
 
@@ -72,6 +72,22 @@
 </video>
 <div class="matrix-container absolute inset-0 w-full h-full opacity-0 transition-opacity duration-300"></div>
 <div class="terminal-container absolute inset-0 w-full h-full opacity-0 transition-opacity duration-300"></div>
+<div class="motion-container absolute inset-0 w-full h-full opacity-0 transition-opacity duration-300">
+  <div class="easing-graph w-full h-full flex items-center justify-center">
+    <svg id="easing-svg" width="300" height="300" viewBox="0 0 300 300">
+      <!-- Dashed lines -->
+      <line x1="40" y1="60" x2="260" y2="60" stroke="#b3b3b3" stroke-width="3" stroke-dasharray="8 8"/>
+      <line x1="40" y1="240" x2="260" y2="240" stroke="#b3b3b3" stroke-width="3" stroke-dasharray="8 8"/>
+      <!-- Easing curve path (animated) -->
+      <path id="easing-path" d="M40,240 C40,60 260,60 260,240" stroke="#fffad1" stroke-width="6" fill="none"/>
+      <!-- Handles -->
+      <circle id="handle1" cx="40" cy="60" r="12" fill="#00ff6a" stroke="#fff" stroke-width="3"/>
+      <rect id="handle2" x="248" y="48" width="24" height="24" rx="6" fill="#aaffb8" stroke="#fff" stroke-width="3"/>
+      <rect id="handle3" x="28" y="228" width="24" height="24" rx="6" fill="#aaffb8" stroke="#fff" stroke-width="3"/>
+      <circle id="handle4" cx="260" cy="240" r="12" fill="#00ff6a" stroke="#fff" stroke-width="3"/>
+    </svg>
+  </div>
+</div>
 <!-- Gradient Overlays -->
 <div class="absolute inset-0 bg-linear-to-t from-gray-950 from-0% via-transparent via-5% via-transparent via-95% to-gray-950 to-100% pointer-events-none"></div>
 
@@ -90,6 +106,7 @@
                             elseif title == 'Data Visualization' }}data{{
                             elseif title == 'Video Production' }}video{{
                             /if }} font-oxanium">
+                        <div class="effect-bg absolute inset-0 z-0 pointer-events-none"></div>
                         <h2 class="text-3xl font-semibold text-white relative z-10">
                                 <span class="text-3d">{{ title }}</span>
                         </h2>
@@ -101,7 +118,7 @@
 </section>
 
 <!-- Capabilities Section -->
-<section class="py-24 relative overflow-hidden">
+<section class="py-12 relative overflow-hidden">
   <!-- Particle effect container for Capabilities section -->
   <div id="particle-container-capabilities" class="absolute inset-0 z-10 opacity-50"></div>
   <div class="mx-auto max-w-6xl px-6 relative z-10">
@@ -157,3 +174,5 @@
         animation: float 6s ease-in-out infinite;
     }
 </style>
+
+

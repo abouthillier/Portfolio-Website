@@ -231,6 +231,14 @@
     overflow: hidden;
 }
 
+.effect-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
 /* Grid Pattern */
 .bg-grid-pattern {
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),

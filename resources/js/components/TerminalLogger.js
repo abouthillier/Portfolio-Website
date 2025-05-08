@@ -60,8 +60,21 @@ export default class TerminalLogger {
         this.lastTimestamp = now;
     }
     
+    logDeviceOrientation(alpha, beta, gamma) {
+        const time = new Date().toLocaleTimeString();
+        this.lines.push({
+            text: `[${time}] Orientation: α=${alpha.toFixed(1)} β=${beta.toFixed(1)} γ=${gamma.toFixed(1)}`,
+            timestamp: Date.now()
+        });
+
+        // Keep only the last maxLines
+        if (this.lines.length > this.maxLines) {
+            this.lines.shift();
+        }
+    }
+    
     animate() {
-        this.ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
+        this.ctx.fillStyle = 'rgba(0, 0, 0, 0)';
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
         
         // // Draw terminal header
