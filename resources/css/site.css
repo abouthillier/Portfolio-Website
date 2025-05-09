@@ -13,29 +13,7 @@
 @source "../views";
 @source "../../content";
 
-/* Integrate Hencove branding into tailwind theme */
 @theme {
-    /* Colors */
-    --color-white-500: #fefaf1;
-    --color-black-500: #262626;
-    --color-yellow-*: initial;
-    --color-yellow-500: #ffd623;
-    --color-yellow-400: #fff140;
-    --color-yellow-600: #ed9d23;
-    --color-tan-500: #f7ead2;
-    --color-blue-*: initial;
-    --color-blue-500: #6b8dfe;
-    --color-blue-600: #09467a;
-    --color-teal-*: initial;
-    --color-teal-500: #37ccbf;
-    --color-teal-600: #125e45;
-    --color-pink-*: initial;
-    --color-pink-500: #e673e4;
-    --color-pink-600: #851d5d;
-    --color-purple-*: initial;
-    --color-purple-500: #b18af8;
-    --color-purple-600: #572987;
-
     /* Fonts */
     --font-oxanium: "Oxanium", "sans-serif";
     --font-bitter: "Bitter", "serif";
@@ -231,6 +209,14 @@
     overflow: hidden;
 }
 
+.effect-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
 /* Grid Pattern */
 .bg-grid-pattern {
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
@@ -295,22 +281,11 @@
 }
 
 .hover-card:hover {
-    /* transform: translateY(-5px); */
     box-shadow: 
         0 20px 25px -5px rgba(0, 0, 0, 0.1),
         0 0 15px rgb(34 211 238 / 0.3); /* Using direct RGB values for cyan-400 */
 }
 
-.hover-card:active {
-    /* transform: translateY(-2px); */
-}
-
-#particle-container canvas {
-    position: absolute;
-    inset: 0;
+form input, form textarea {
     width: 100%;
-    height: 100%;
-    display: block;
-    z-index: 0;
-    pointer-events: none; /* So it doesn't block UI */
 }

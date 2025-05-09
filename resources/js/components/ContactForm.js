@@ -72,45 +72,40 @@ class ContactForm {
                     status.textContent = '';
                     status.className = 'text-center mt-4 text-lg';
                 }
-                // Spam protection: honeypot
-                const honeypot = form.querySelector('[name="website"]');
-                if (honeypot && honeypot.value) {
-                    if (status) {
-                        status.textContent = 'Spam detected.';
-                        status.classList.add('text-red-500');
-                    }
-                    return;
-                }
-                // Client-side validation
-                const name = form.name.value.trim();
-                const email = form.email.value.trim();
-                const message = form.message.value.trim();
-                if (!name || !email || !message) {
-                    if (status) {
-                        status.textContent = 'Please fill in all fields.';
-                        status.classList.add('text-red-500');
-                    }
-                    return;
-                }
+
                 // Show loading
                 if (status) {
                     status.textContent = 'Sending...';
                     status.classList.add('text-gray-400');
                 }
+
                 // Prepare FormData
                 const formData = new FormData(form);
+
                 try {
                     const response = await fetch(form.action, {
                         method: 'POST',
-                        body: formData
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
                     });
                     const result = await response.json();
+
                     if (result.success) {
                         form.reset();
                         if (status) {
-                            status.textContent = 'Thank you! Your message has been sent.';
+                            status.textContent = result.message || 'Thank you! Your message has been sent.';
                             status.classList.remove('text-gray-400');
                             status.classList.add('text-green-500');
+                        }
+                    } else if (result.errors) {
+                        // Statamic returns errors as an object: { field: [errors] }
+                        const errorMessages = Object.values(result.errors).flat().join(' ');
+                        if (status) {
+                            status.textContent = errorMessages;
+                            status.classList.remove('text-gray-400');
+                            status.classList.add('text-red-500');
                         }
                     } else {
                         throw new Error(result.error || 'Unknown error');

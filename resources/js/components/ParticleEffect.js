@@ -41,7 +41,7 @@ export default class ParticleEffect {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             const logoPaths = await response.json();
-            console.log('API returned logo paths:', logoPaths);
+            // console.log('API returned logo paths:', logoPaths);
 
             if (!Array.isArray(logoPaths) || logoPaths.length === 0) {
                 throw new Error('No logo paths returned from API');
@@ -53,7 +53,7 @@ export default class ParticleEffect {
                     const img = new Image();
                     
                     img.onload = () => {
-                        console.log(`Successfully loaded logo: ${path}`);
+                        // console.log(`Successfully loaded logo: ${path}`);
                         this.logoImages.push(img);
                         resolve();
                     };
@@ -65,7 +65,7 @@ export default class ParticleEffect {
 
                     // Set CORS attribute and source
                     img.crossOrigin = "anonymous";
-                    console.log(`Attempting to load: ${path}`);
+                    // console.log(`Attempting to load: ${path}`);
                     img.src = path;
                 });
             });
@@ -73,7 +73,7 @@ export default class ParticleEffect {
             // Wait for all images to load (or fail)
             await Promise.all(loadPromises);
             
-            console.log(`Successfully loaded ${this.logoImages.length} logos`);
+            // console.log(`Successfully loaded ${this.logoImages.length} logos`);
             
             // If no logos loaded successfully, throw an error
             if (this.logoImages.length === 0) {

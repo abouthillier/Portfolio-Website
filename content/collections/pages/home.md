@@ -27,23 +27,29 @@ work_categories:
     title: 'Video Production'
     url: /work/video
     background_color: bg-purple-500
-case_studies:
-  -
-    id: 9Yl3bXgL
-    title: 'Hencove Work'
-    description: 'Lorem ipsum dolor sit amet, consecterur adipiscing elit. Quisque tessus airusus uruste ultricles et, sodales, allnalinier et illacueni onier vicno, nec ura radecen.'
-  -
-    id: N84SVPvp
-    title: 'Motion/3D Projects'
-    description: 'Lorem ipsum dolor sit amet, consecterur adipiscing elit.'
-  -
-    id: JpuuYOzw
-    title: 'Python Analytics tools'
-    description: 'Lorem ipsum dolor sit amet, consecterur adipiscing elit.'
 updated_by: 7775a028-954d-4a8d-9ab3-e09d457083cb
-updated_at: 1745679871
+updated_at: 1746799650
 author: 7775a028-954d-4a8d-9ab3-e09d457083cb
 template: home
 hero_subtitle: 'Alex Bouthillier'
 title: Home
+capabilities:
+  -
+    id: magv3jg9
+    title: Development
+    description: 'Full-stack web developer with expertise in modern JavaScript, PHP, Python, and CMS integration, building scalable and maintainable digital products.'
+    icon: generic-field
+    color: text-emerald-400
+  -
+    id: magv3heh
+    title: Strategy
+    description: 'Experienced in digital strategy, project management, and analytics, with a focus on delivering measurable results and aligning business goals with user needs.'
+    icon: pages
+    color: text-cyan-400
+  -
+    id: magv3i8w
+    title: Design
+    description: 'Specializing in UI/UX design, motion graphics, and brand development, creating engaging digital experiences across web and interactive platforms.'
+    icon: pencil
+    color: text-pink-400
 ---

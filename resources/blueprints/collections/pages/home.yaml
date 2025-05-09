@@ -7,17 +7,22 @@ tabs:
         display: 'Page Settings'
         fields:
           -
-            handle: title1
+            handle: title
             field:
               type: text
               required: true
               validate:
                 - required
           -
+            handle: title1
+            field:
+              type: text
+              validate:
+                - required
+          -
             handle: title2
             field:
               type: text
-              required: true
               validate:
                 - required
           -
@@ -77,13 +82,13 @@ tabs:
                     type: text
                     display: 'Background Color'
       -
-        display: 'Case Studies'
+        display: Capabilites
         fields:
           -
-            handle: case_studies
+            handle: capabilities
             field:
               type: grid
-              display: 'Case Studies'
+              display: Capabilities
               fields:
                 -
                   handle: title
@@ -95,3 +100,34 @@ tabs:
                   field:
                     type: textarea
                     display: Description
+                -
+                  handle: icon
+                  field:
+                    type: icon
+                    display: icon
+                -
+                  handle: color
+                  field:
+                    type: text
+                    display: color
+                    instructions: 'Tailwind color class'
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
+          -
+            handle: parent
+            field:
+              type: entries
+              collections:
+                - pages
+              max_items: 1
+              listable: false
+              localizable: true

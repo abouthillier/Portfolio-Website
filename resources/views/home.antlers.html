@@ -1,35 +1,14 @@
-<!-- <div id="shooting-star-container" style="position:fixed; top:0; left:0; width:100vw; height:100vh; pointer-events:none; z-index:50;">
-  <svg id="shooting-star-svg" width="100%" height="100%" viewBox="0 0 1920 1080" style="overflow:visible; position:absolute; top:0; left:0;">
-    <defs>
-      <linearGradient id="star-gradient" x1="0" y1="0" x2="120" y2="0" gradientUnits="userSpaceOnUse">
-        <stop offset="0%" stop-color="#00eaff" stop-opacity="0"/>
-        <stop offset="100%" stop-color="#fff" stop-opacity="1"/>
-      </linearGradient>
-    </defs>
-    <!-- <path id="star-path" d="M 100 100 Q 960 200 1820 300 Q 960 500 100 700 Q 960 900 1820 1000" fill="none" stroke="none"/> -->
-    <!-- <path id="star-path" d="M 0 0 Q 960 200 1820 300 Q 960 500 100 700 Q 960 900 1820 1000" fill="none" stroke="none"/> -->
-    <!-- <path id="star-path" fill="none" stroke="none"/>
-    <g id="star-group">
-      <line id="shooting-star" x1="0" y1="0" x2="120" y2="0" stroke="url(#star-gradient)" stroke-width="8" stroke-linecap="round"/>
-    </g>
-  </svg>
-</div> -->
-
-<section class="relative min-h-screen bg-gray-950 text-white py-32 overflow-hidden border-50 border-gray-950 rounded-[150px]">
+<section class="relative min-h-screen bg-gray-950 text-white py-24 md:py-32 overflow-hidden md:border-50 md:border-gray-950 md:rounded-[150px]">
     <!-- Particle effect container with reduced opacity -->
-    <div id="particle-container" class="absolute inset-0 z-8"></div>
+    <div id="particle-container" class="absolute inset-0 w-full h-full z-8 pointer-events-none"></div>
 
     <!-- Blue gradient overlay -->
     <div class="absolute inset-0 bg-gradient-to-b from-transparent from-60% via-cyan-600 via-95% to-cyan-200"></div>
 
     <!-- Grid background -->
-    <div class="absolute inset-0 bg-grid-pattern opacity-50 pointer-events-none"></div>
+    <div class="absolute inset-0 bg-grid-pattern opacity-50"></div>
 
     <div class="relative mx-auto max-w-6xl text-center px-6 mt-20">
-        <!-- Small label -->
-        <!-- <div class="inline-block bg-cyan-500/10 text-cyan-400 px-4 py-2 rounded-full text-sm font-medium mb-6 font-oxanium">
-            Portfolio - 2025
-        </div> -->
 
         <!-- Main heading with highlighted word -->
         <h1 class="text-4xl sm:text-7xl font-bold mb-6 tracking-tight font-oxanium">
@@ -46,16 +25,29 @@
         </p>
 
         <!-- CTA Buttons -->
-        <div class="flex gap-4 justify-center">
-            <article>
-                <a href="{{ cta_url }}" class="glow-button inline-block rounded-full bg-cyan-500 px-8 py-4 text-lg font-medium text-white hover:bg-cyan-600 transition-colors relative overflow-hidden font-oxanium">
-                    <span class="relative z-10">See My Work</span>
-                </a>
-            </article>
-        </div>
+        <button id="scroll-cta" class="svg-glow-button relative overflow-visible">
+          <svg id="scroll-cta-svg" width="200" height="60" viewBox="0 0 200 60" fill="none">
+            <!-- Arrow path: hidden by default, shown via JS -->
+            <path id="scroll-cta-arrow"
+              d="M100,20 V40 M80,40 L100,60 L120,40"
+              stroke="#06B6D4" stroke-width="2" fill="none" filter="url(#glow)" style="opacity:0; transition: opacity 0.3s;"/>
+            <!-- Pill path: morphs, sits above arrow -->
+            <path id="scroll-cta-path"
+              d="M10,30 Q10,10 30,10 L170,10 Q190,10 190,30 Q190,50 170,50 L30,50 Q10,50 10,30 Z"
+              stroke="#06B6D4" stroke-width="2" fill="none" filter="url(#glow)"/>
+            <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+              <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </svg>
+          <span class="absolute inset-0 flex items-center justify-center text-white font-oxanium text-lg z-10 pointer-events-none">See My Work</span>
+        </button>
     </div>
 </section>
-<section class="py-24 bg-gray-900 relative overflow-hidden">
+<section class="py-24 bg-gray-900 relative overflow-hidden" id="work">
   <!-- Video Background -->
   <video
   autoplay
@@ -64,14 +56,31 @@
   playsinline
   class="absolute mx-auto left-0 right-0 top-0 bottom-0 w-full h-full object-cover opacity-0 transition-opacity duration-300"
   >
-  <source
-  src="/assets/DemoReel.mp4"
-  type="video/mp4"
-  />
+    <source
+    src="/assets/DemoReel.mp4"
+    type="video/mp4"
+    />
   Your browser does not support the video tag.
 </video>
 <div class="matrix-container absolute inset-0 w-full h-full opacity-0 transition-opacity duration-300"></div>
 <div class="terminal-container absolute inset-0 w-full h-full opacity-0 transition-opacity duration-300"></div>
+<div class="motion-container absolute inset-0 w-full h-full opacity-0 transition-opacity duration-300">
+
+  <div class="easing-graph w-full h-full flex items-center justify-center">
+    <svg id="easing-svg" width="300" height="300" viewBox="0 0 300 300">
+      <!-- Dashed lines -->
+      <line x1="40" y1="60" x2="260" y2="60" stroke="#b3b3b3" stroke-width="3" stroke-dasharray="8 8"/>
+      <line x1="40" y1="240" x2="260" y2="240" stroke="#b3b3b3" stroke-width="3" stroke-dasharray="8 8"/>
+      <!-- Easing curve path (animated) -->
+      <path id="easing-path" d="M40,240 C40,60 260,60 260,240" stroke="#fffad1" stroke-width="6" fill="none"/>
+      <!-- Handles -->
+      <circle id="handle1" cx="40" cy="60" r="12" fill="#00ff6a" stroke="#fff" stroke-width="3"/>
+      <rect id="handle2" x="248" y="48" width="24" height="24" rx="6" fill="#aaffb8" stroke="#fff" stroke-width="3"/>
+      <rect id="handle3" x="28" y="228" width="24" height="24" rx="6" fill="#aaffb8" stroke="#fff" stroke-width="3"/>
+      <circle id="handle4" cx="260" cy="240" r="12" fill="#00ff6a" stroke="#fff" stroke-width="3"/>
+    </svg>
+  </div>
+</div>
 <!-- Gradient Overlays -->
 <div class="absolute inset-0 bg-linear-to-t from-gray-950 from-0% via-transparent via-5% via-transparent via-95% to-gray-950 to-100% pointer-events-none"></div>
 
@@ -90,6 +99,7 @@
                             elseif title == 'Data Visualization' }}data{{
                             elseif title == 'Video Production' }}video{{
                             /if }} font-oxanium">
+                        <div class="effect-bg absolute inset-0 z-0 pointer-events-none"></div>
                         <h2 class="text-3xl font-semibold text-white relative z-10">
                                 <span class="text-3d">{{ title }}</span>
                         </h2>
@@ -101,7 +111,7 @@
 </section>
 
 <!-- Capabilities Section -->
-<section class="py-24 relative overflow-hidden">
+<section class="py-12 relative overflow-hidden">
   <!-- Particle effect container for Capabilities section -->
   <div id="particle-container-capabilities" class="absolute inset-0 z-10 opacity-50"></div>
   <div class="mx-auto max-w-6xl px-6 relative z-10">
@@ -110,30 +120,15 @@
       <span class="bg-gradient-to-r from-cyan-400 to-sky-600 text-transparent bg-clip-text">Expertise</span>
     </h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-      <!-- Strategy -->
+      {{ capabilities }}
       <div class="p-8 flex flex-col items-center text-center">
-        <div class="mb-4 text-cyan-400">
-          <svg class="w-10 h-10 mx-auto" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2a4 4 0 014-4h2a4 4 0 014 4v2M7 7a4 4 0 118 0 4 4 0 01-8 0z" /></svg>
+        <div class="mb-4 w-10 h-10 mx-auto {{ color }}">
+          {{ icon }}
         </div>
-        <h3 class="text-2xl font-bold mb-2 text-cyan-300 font-oxanium">Strategy</h3>
-        <p class="text-gray-400 mb-4">Experienced in digital strategy, project management, and analytics, with a focus on delivering measurable results and aligning business goals with user needs.</p>
+        <h3 class="text-2xl font-bold mb-2 {{ color }} font-oxanium">{{ title }}</h3>
+        <p class="text-gray-400 mb-4">{{ description }}</p>
       </div>
-      <!-- Design -->
-      <div class="p-8 flex flex-col items-center text-center">
-        <div class="mb-4 text-pink-400">
-          <svg class="w-10 h-10 mx-auto" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-4.586 2.65A2 2 0 017 12.021V7.98a2 2 0 013.166-1.797l4.586 2.65a2 2 0 010 3.335z" /></svg>
-        </div>
-        <h3 class="text-2xl font-bold mb-2 text-pink-300 font-oxanium">Design</h3>
-        <p class="text-gray-400 mb-4">Specializing in UI/UX design, motion graphics, and brand development, creating engaging digital experiences across web and interactive platforms.</p>
-      </div>
-      <!-- Technology -->
-      <div class="p-8 flex flex-col items-center text-center">
-        <div class="mb-4 text-emerald-400">
-          <svg class="w-10 h-10 mx-auto" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" /></svg>
-        </div>
-        <h3 class="text-2xl font-bold mb-2 text-emerald-300 font-oxanium">Tech Stacks</h3>
-        <p class="text-gray-400 mb-4">Full-stack web developer with expertise in modern JavaScript, PHP, Python, and CMS integration, building scalable and maintainable digital products.</p>
-      </div>
+      {{ /capabilities }}
     </div>
   </div>
 </section>
@@ -157,3 +152,5 @@
         animation: float 6s ease-in-out infinite;
     }
 </style>
+
+
