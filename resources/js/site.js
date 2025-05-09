@@ -23,12 +23,25 @@ function isMobile() {
 // Initialize particle effect
 const particleContainer = document.getElementById('particle-container');
 if (particleContainer) {
-    new ParticleEffect(particleContainer, {
+    const particleEffect = new ParticleEffect(particleContainer, {
         nodeCount: 40,
         lineDistance: 200,
         useLogos: false,
         logoSize: 40
     });
+    // Forward click events to underlying elements (e.g., CTA button)
+    const canvas = particleContainer.querySelector('canvas');
+    if (canvas) {
+        canvas.addEventListener('click', function(e) {
+            // Temporarily disable pointer events to get the underlying element
+            canvas.style.pointerEvents = 'none';
+            const elem = document.elementFromPoint(e.clientX, e.clientY);
+            canvas.style.pointerEvents = 'auto';
+            if (elem && typeof elem.click === 'function') {
+                elem.click();
+            }
+        });
+    }
 }
 
 const particleContainerCapabilities = document.getElementById('particle-container-capabilities');

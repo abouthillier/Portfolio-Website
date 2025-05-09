@@ -74,7 +74,7 @@ export default class TerminalLogger {
     }
     
     animate() {
-        this.ctx.fillStyle = 'rgba(0, 0, 0, 0)';
+        this.ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
         
         // // Draw terminal header

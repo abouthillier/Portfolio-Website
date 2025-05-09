@@ -322,3 +322,7 @@
     z-index: 0;
     pointer-events: none; /* So it doesn't block UI */
 }
+
+form input, form textarea {
+    width: 100%;
+}
