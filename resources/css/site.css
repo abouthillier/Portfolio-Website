@@ -303,24 +303,9 @@
 }
 
 .hover-card:hover {
-    /* transform: translateY(-5px); */
     box-shadow: 
         0 20px 25px -5px rgba(0, 0, 0, 0.1),
         0 0 15px rgb(34 211 238 / 0.3); /* Using direct RGB values for cyan-400 */
-}
-
-.hover-card:active {
-    /* transform: translateY(-2px); */
-}
-
-#particle-container canvas {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    display: block;
-    z-index: 0;
-    pointer-events: none; /* So it doesn't block UI */
 }
 
 form input, form textarea {

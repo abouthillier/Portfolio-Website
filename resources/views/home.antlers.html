@@ -1,35 +1,14 @@
-<!-- <div id="shooting-star-container" style="position:fixed; top:0; left:0; width:100vw; height:100vh; pointer-events:none; z-index:50;">
-  <svg id="shooting-star-svg" width="100%" height="100%" viewBox="0 0 1920 1080" style="overflow:visible; position:absolute; top:0; left:0;">
-    <defs>
-      <linearGradient id="star-gradient" x1="0" y1="0" x2="120" y2="0" gradientUnits="userSpaceOnUse">
-        <stop offset="0%" stop-color="#00eaff" stop-opacity="0"/>
-        <stop offset="100%" stop-color="#fff" stop-opacity="1"/>
-      </linearGradient>
-    </defs>
-    <!-- <path id="star-path" d="M 100 100 Q 960 200 1820 300 Q 960 500 100 700 Q 960 900 1820 1000" fill="none" stroke="none"/> -->
-    <!-- <path id="star-path" d="M 0 0 Q 960 200 1820 300 Q 960 500 100 700 Q 960 900 1820 1000" fill="none" stroke="none"/> -->
-    <!-- <path id="star-path" fill="none" stroke="none"/>
-    <g id="star-group">
-      <line id="shooting-star" x1="0" y1="0" x2="120" y2="0" stroke="url(#star-gradient)" stroke-width="8" stroke-linecap="round"/>
-    </g>
-  </svg>
-</div> -->
-
 <section class="relative min-h-screen bg-gray-950 text-white py-24 md:py-32 overflow-hidden md:border-50 md:border-gray-950 md:rounded-[150px]">
     <!-- Particle effect container with reduced opacity -->
-    <div id="particle-container" class="absolute inset-0 z-8"></div>
+    <div id="particle-container" class="absolute inset-0 w-full h-full z-8 pointer-events-none"></div>
 
     <!-- Blue gradient overlay -->
     <div class="absolute inset-0 bg-gradient-to-b from-transparent from-60% via-cyan-600 via-95% to-cyan-200"></div>
 
     <!-- Grid background -->
-    <div class="absolute inset-0 bg-grid-pattern opacity-50 pointer-events-none"></div>
+    <div class="absolute inset-0 bg-grid-pattern opacity-50"></div>
 
     <div class="relative mx-auto max-w-6xl text-center px-6 mt-20">
-        <!-- Small label -->
-        <!-- <div class="inline-block bg-cyan-500/10 text-cyan-400 px-4 py-2 rounded-full text-sm font-medium mb-6 font-oxanium">
-            Portfolio - 2025
-        </div> -->
 
         <!-- Main heading with highlighted word -->
         <h1 class="text-4xl sm:text-7xl font-bold mb-6 tracking-tight font-oxanium">
@@ -46,13 +25,26 @@
         </p>
 
         <!-- CTA Buttons -->
-        <div class="flex gap-4 justify-center">
-            <article>
-                <a href="#work" class="glow-button inline-block rounded-full bg-cyan-500 px-8 py-4 text-lg font-medium text-white hover:bg-cyan-600 transition-colors relative overflow-hidden font-oxanium">
-                    <span class="relative z-10">See My Work</span>
-                </a>
-            </article>
-        </div>
+        <button id="scroll-cta" class="svg-glow-button relative overflow-visible">
+          <svg id="scroll-cta-svg" width="200" height="60" viewBox="0 0 200 60" fill="none">
+            <!-- Arrow path: hidden by default, shown via JS -->
+            <path id="scroll-cta-arrow"
+              d="M100,20 V40 M80,40 L100,60 L120,40"
+              stroke="#06B6D4" stroke-width="2" fill="none" filter="url(#glow)" style="opacity:0; transition: opacity 0.3s;"/>
+            <!-- Pill path: morphs, sits above arrow -->
+            <path id="scroll-cta-path"
+              d="M10,30 Q10,10 30,10 L170,10 Q190,10 190,30 Q190,50 170,50 L30,50 Q10,50 10,30 Z"
+              stroke="#06B6D4" stroke-width="2" fill="none" filter="url(#glow)"/>
+            <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+              <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </svg>
+          <span class="absolute inset-0 flex items-center justify-center text-white font-oxanium text-lg z-10 pointer-events-none">See My Work</span>
+        </button>
     </div>
 </section>
 <section class="py-24 bg-gray-900 relative overflow-hidden" id="work">
