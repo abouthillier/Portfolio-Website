@@ -1,64 +1,57 @@
 title: 'Motion Design Project'
-sections:
+tabs:
   main:
     display: Main
-    fields:
+    sections:
       -
-        handle: title
-        field:
-          type: text
-          required: true
-          validate:
-            - required
-      -
-        handle: preview_animation
-        field:
-          type: assets
-          container: assets
-          max_files: 1
-          mode: grid
-          required: true
-          allowed_types: ['webm', 'mp4', 'gif']
-      -
-        handle: description
-        field:
-          type: markdown
-          display: Description
-          required: true
-      -
-        handle: software_used
-        field:
-          type: tags
-          display: Software Used
-          required: true
-      -
-        handle: duration
-        field:
-          type: text
-          display: Duration
-          required: true
-      -
-        handle: style_frames
-        field:
-          type: assets
-          container: assets
-          mode: grid
-          display: Style Frames
-          max_files: 5
-      -
-        handle: color_palette
-        field:
-          type: grid
-          display: Color Palette
-          add_row: 'Add Color'
-          fields:
-            -
-              handle: color
-              field:
-                type: color
-                display: Color
-            -
-              handle: description
-              field:
-                type: text
-                display: Description 
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: preview_animation
+            field:
+              type: assets
+              container: assets
+              max_files: 1
+              mode: grid
+              allowed_types:
+                - webm
+                - mp4
+                - gif
+              validate:
+                - required
+          -
+            handle: description
+            field:
+              type: markdown
+              display: Description
+              validate:
+                - required
+          -
+            handle: software_used
+            field:
+              type: terms
+              taxonomies:
+                - software_used
+              display: Software Used
+              required: true
+              mode: select
+              max_items: 10
+          -
+            handle: style_frames
+            field:
+              type: assets
+              container: assets
+              mode: grid
+              display: 'Style Frames'
+              max_files: 5
+          -
+            handle: link
+            field:
+              type: link
+              display: Link
