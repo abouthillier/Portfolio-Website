@@ -9,4 +9,4 @@ route: '/motion-design/{slug}'
 sort_dir: desc
 date_behavior:
   past_date: public
-  future_date: private 
+  future_date: private

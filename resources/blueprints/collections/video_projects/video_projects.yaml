@@ -42,6 +42,8 @@ sections:
         handle: role
         field:
           type: terms
+          taxonomies:
+            - role
           display: Role
           required: false
       -
@@ -57,4 +59,3 @@ sections:
           container: assets
           mode: grid
           display: Behind the Scenes
-      -

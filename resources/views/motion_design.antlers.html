@@ -43,37 +43,31 @@
                         <!-- Project Info -->
                         <div class="mt-6">
                             <h2 class="text-2xl font-bold text-white mb-3 font-oxanium">{{ title }}</h2>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                {{ software_used }}
-                                    <span class="px-3 py-1 bg-cyan-500/10 text-cyan-400 rounded-full text-sm">{{ value }}</span>
-                                {{ /software_used }}
+                            <div class="flex justify-between mb-4">
+                                <div class="flex flex-wrap gap-2">
+                                    {{ if software_used }}
+                                        {{ software_used }}
+                                            <span class="px-3 py-1 bg-cyan-500/10 text-cyan-400 rounded-full text-xs font-bold">
+                                                {{ title }}
+                                            </span>
+                                        {{ /software_used }}
+                                    {{ /if }}
+                                </div>
+                                {{ if link }}
+                                    <a href="{{ link }}" class="px-3 py-1 bg-pink-500/10 text-pink-400 rounded-full text-xs font-bold">View Live</a>
+                                {{ /if }}
                             </div>
-                            <p class="text-gray-400">{{ description | truncate:150 }}</p>
+                            <p class="text-gray-400">{{ description }}</p>
                         </div>
 
                         <!-- Style Frames -->
                         {{ if style_frames }}
-                            <div class="mt-6 grid grid-cols-5 gap-2">
+                            <div class="mt-6 grid grid-cols-3 gap-2">
                                 {{ style_frames }}
-                                    <div class="aspect-square rounded-lg overflow-hidden">
+                                    <div class="aspect-auto rounded-lg overflow-hidden">
                                         <img src="{{ url }}" alt="Style frame" class="w-full h-full object-cover">
                                     </div>
                                 {{ /style_frames }}
-                            </div>
-                        {{ /if }}
-
-                        <!-- Color Palette -->
-                        {{ if color_palette }}
-                            <div class="mt-6">
-                                <h3 class="text-sm font-medium text-gray-400 mb-3">Color Palette</h3>
-                                <div class="flex gap-2">
-                                    {{ color_palette }}
-                                        <div class="flex flex-col items-center">
-                                            <div class="w-8 h-8 rounded-full" style="background-color: {{ color }};"></div>
-                                            <span class="text-xs text-gray-500 mt-1">{{ description }}</span>
-                                        </div>
-                                    {{ /color_palette }}
-                                </div>
                             </div>
                         {{ /if }}
                     </div>

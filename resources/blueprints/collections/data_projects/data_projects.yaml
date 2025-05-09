@@ -27,7 +27,9 @@ sections:
       -
         handle: tools_used
         field:
-          type: tags
+          type: terms
+          taxonomies:
+            - tools_used
           display: Tools & Technologies
           required: true
       -
