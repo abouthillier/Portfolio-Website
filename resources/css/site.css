@@ -13,29 +13,7 @@
 @source "../views";
 @source "../../content";
 
-/* Integrate Hencove branding into tailwind theme */
 @theme {
-    /* Colors */
-    --color-white-500: #fefaf1;
-    --color-black-500: #262626;
-    --color-yellow-*: initial;
-    --color-yellow-500: #ffd623;
-    --color-yellow-400: #fff140;
-    --color-yellow-600: #ed9d23;
-    --color-tan-500: #f7ead2;
-    --color-blue-*: initial;
-    --color-blue-500: #6b8dfe;
-    --color-blue-600: #09467a;
-    --color-teal-*: initial;
-    --color-teal-500: #37ccbf;
-    --color-teal-600: #125e45;
-    --color-pink-*: initial;
-    --color-pink-500: #e673e4;
-    --color-pink-600: #851d5d;
-    --color-purple-*: initial;
-    --color-purple-500: #b18af8;
-    --color-purple-600: #572987;
-
     /* Fonts */
     --font-oxanium: "Oxanium", "sans-serif";
     --font-bitter: "Bitter", "serif";

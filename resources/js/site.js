@@ -1,5 +1,4 @@
 import ParticleEffect from './components/ParticleEffect';
-import Tabs from './components/Tabs';
 import ProximityGlow from './components/ProximityGlow';
 import ContactForm from './components/ContactForm';
 import gsap from "gsap";
@@ -51,12 +50,6 @@ if (particleContainerCapabilities) {
         useLogos: true,
         logoSize: 40
     });
-}
-
-// Initialize tabs
-const tabsContainer = document.querySelector('[role="tablist"]')?.closest('section');
-if (tabsContainer) {
-    new Tabs(tabsContainer);
 }
 
 // Initialize contact form

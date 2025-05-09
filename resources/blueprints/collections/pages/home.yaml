@@ -81,6 +81,36 @@ tabs:
                   field:
                     type: text
                     display: 'Background Color'
+      -
+        display: Capabilites
+        fields:
+          -
+            handle: capabilities
+            field:
+              type: grid
+              display: Capabilities
+              fields:
+                -
+                  handle: title
+                  field:
+                    type: text
+                    display: Title
+                -
+                  handle: description
+                  field:
+                    type: textarea
+                    display: Description
+                -
+                  handle: icon
+                  field:
+                    type: icon
+                    display: icon
+                -
+                  handle: color
+                  field:
+                    type: text
+                    display: color
+                    instructions: 'Tailwind color class'
   sidebar:
     display: Sidebar
     sections:
