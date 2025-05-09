@@ -27,19 +27,19 @@ const throttle = (func, limit) => {
 };
 
 // Setup breakpoints with GSAP MatchMedia
-const setupBreakpoints = (breakpoint = 1024) => {
+const setupBreakpoints = (callback, breakpoint = 1024) => {
     const mm = gsap.matchMedia();
-    let isMobile = false;
 
     mm.add(`(max-width: ${breakpoint}px)`, () => {
-        isMobile = true;
+        callback(true);
     });
 
     mm.add(`(min-width: ${breakpoint + 1}px)`, () => {  
-        isMobile = false;
+        callback(false);
     });
 
-    return isMobile;
+    // Initial check
+    callback(window.matchMedia(`(max-width: ${breakpoint}px)`).matches);
 };
 
 const addGutterLines = (element) => {

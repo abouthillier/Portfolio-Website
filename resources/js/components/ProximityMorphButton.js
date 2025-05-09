@@ -3,15 +3,15 @@ import { MorphSVGPlugin } from "gsap/MorphSVGPlugin";
 gsap.registerPlugin(MorphSVGPlugin);
 
 export default class ProximityMorphButton {
-    constructor(button, options = {}) {
+    constructor(button) {
         this.button = button;
         this.path = button.querySelector('#scroll-cta-path');
         this.arrow = button.querySelector('#scroll-cta-arrow');
         // Default pill shape
-        this.defaultPath = options.defaultPath || "M10,30 Q10,10 30,10 L170,10 Q190,10 190,30 Q190,50 170,50 L30,50 Q10,50 10,30 Z";
+        this.defaultPath = "M10,30 Q10,10 30,10 L170,10 Q190,10 190,30 Q190,50 170,50 L30,50 Q10,50 10,30 Z";
         // Chevron arrow with tail
-        this.arrowPath = options.arrowPath || "M100,120 V40 M80,140 L100,160 L120,140";
-        this.targetSelector = options.targetSelector || '#work';
+        this.arrowPath = "M100,40 V00 M80,40 L100,60 L120,40";
+        this.targetSelector = '#work';
         this.initEvents();
     }
 
@@ -35,13 +35,12 @@ export default class ProximityMorphButton {
         });
         tl.to(this.button.querySelector('svg'), {
             duration: 0.5,
-            y: 50,
+            y: 60,
             ease: "power2.in"
         }, 0.1);
     }
 
     morphToDefault() {
-        // if (this.arrow) this.arrow.style.opacity = 0;
         const tl = gsap.timeline();
         tl.to(this.button.querySelector('svg'), {
             duration: 0.5,
