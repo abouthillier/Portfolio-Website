@@ -1,61 +1,81 @@
 title: 'Video Project'
-sections:
+tabs:
   main:
     display: Main
-    fields:
+    sections:
       -
-        handle: title
-        field:
-          type: text
-          required: false
-          validate:
-            - required
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: false
+              validate:
+                - required
+          -
+            handle: video_file
+            field:
+              type: assets
+              container: assets
+              max_files: 1
+              mode: grid
+              required: false
+              allowed_types:
+                - mp4
+                - webm
+          -
+            handle: video_field
+            field:
+              type: video
+              display: 'Video Field'
+          -
+            handle: thumbnail
+            field:
+              type: assets
+              container: assets
+              max_files: 1
+              mode: grid
+              required: false
+          -
+            handle: description
+            field:
+              type: markdown
+              display: Description
+              required: false
+          -
+            handle: client
+            field:
+              type: text
+              display: Client
+          -
+            handle: role
+            field:
+              type: terms
+              taxonomies:
+                - role
+              display: Role
+              required: false
+          -
+            handle: duration
+            field:
+              type: text
+              display: Duration
+              required: false
+          -
+            handle: behind_the_scenes
+            field:
+              type: assets
+              container: assets
+              mode: grid
+              display: 'Behind the Scenes'
+  sidebar:
+    display: Sidebar
+    sections:
       -
-        handle: video_file
-        field:
-          type: assets
-          container: assets
-          max_files: 1
-          mode: grid
-          required: false
-          allowed_types: ['mp4', 'webm']
-      -
-        handle: thumbnail
-        field:
-          type: assets
-          container: assets
-          max_files: 1
-          mode: grid
-          required: false
-      -
-        handle: description
-        field:
-          type: markdown
-          display: Description
-          required: false
-      -
-        handle: client
-        field:
-          type: text
-          display: Client
-      -
-        handle: role
-        field:
-          type: terms
-          taxonomies:
-            - role
-          display: Role
-          required: false
-      -
-        handle: duration
-        field:
-          type: text
-          display: Duration
-          required: false
-      -
-        handle: behind_the_scenes
-        field:
-          type: assets
-          container: assets
-          mode: grid
-          display: Behind the Scenes
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'

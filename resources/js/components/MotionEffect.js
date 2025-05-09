@@ -1,7 +1,6 @@
 import { gsap } from "gsap";
 import { CustomEase } from "gsap/CustomEase";
 import { MorphSVGPlugin } from "gsap/MorphSVGPlugin";
-gsap.registerPlugin(CustomEase, MorphSVGPlugin);
 
 const EASES = [
   "power1.inOut", "power2.inOut", "power3.inOut", "power4.inOut",
@@ -81,8 +80,18 @@ export default class MotionEffect {
 
       // Pick an initial ease and set the path's d attribute
       const ease = EASES[Math.floor(Math.random() * EASES.length)];
-      const initialPath = CustomEase.getSVGData(ease, { width: 220, height: 180, x: 40, y: 60 });
-      path.setAttribute("d", initialPath);
+      try {
+        const initialPath = CustomEase.getSVGData(ease, { width: 220, height: 180, x: 40, y: 60 });
+        if (initialPath) {
+          path.setAttribute("d", initialPath);
+        } else {
+          // Fallback to a simple path if CustomEase fails
+          path.setAttribute("d", "M40,60 L260,240");
+        }
+      } catch (error) {
+        console.warn("CustomEase initialization failed, using fallback path:", error);
+        path.setAttribute("d", "M40,60 L260,240");
+      }
 
       svg.appendChild(path);
 
@@ -130,16 +139,27 @@ export default class MotionEffect {
   }
 
   setPathToEase(path, ease) {
-    const easePath = CustomEase.getSVGData(ease, { width: 220, height: 180, x: 40, y: 60 });
-    if (!easePath || typeof easePath !== "string" || !easePath.startsWith("M")) {
-      console.error("Malformed path:", easePath, "for ease:", ease);
-      return;
+    // Validate ease parameter
+    if (!ease || typeof ease !== 'string' || !EASES.includes(ease)) {
+      console.warn("Invalid ease parameter:", ease);
+      // Use a default ease if the provided one is invalid
+      ease = "power2.inOut";
     }
-    gsap.to(path, {
-      duration: 1.2,
-      morphSVG: { shape: easePath },
-      ease: "power2.inOut"
-    });
+
+    try {
+      const easePath = CustomEase.getSVGData(ease, { width: 220, height: 180, x: 40, y: 60 });
+      if (!easePath || typeof easePath !== "string" || !easePath.startsWith("M")) {
+        console.warn("Invalid path data for ease:", ease);
+        return;
+      }
+      gsap.to(path, {
+        duration: 1.2,
+        morphSVG: { shape: easePath },
+        ease: "power2.inOut"
+      });
+    } catch (error) {
+      console.warn("Failed to set path to ease:", error);
+    }
   }
 
   start() {
@@ -162,8 +182,12 @@ export default class MotionEffect {
 
       // Curve morphing
       const interval = setInterval(() => {
-        const newEase = EASES[Math.floor(Math.random() * EASES.length)];
-        this.setPathToEase(obj.path, newEase);
+        // Ensure we get a valid ease from the array
+        const randomIndex = Math.floor(Math.random() * EASES.length);
+        const newEase = EASES[randomIndex];
+        if (newEase) {
+          this.setPathToEase(obj.path, newEase);
+        }
       }, randomBetween(1800, 3500));
       this.intervals.push(interval);
     });

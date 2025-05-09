@@ -8,7 +8,6 @@ import TerminalLogger from '../components/TerminalLogger';
 import MotionEffect from '../components/MotionEffect';
 import ProximityMorphButton from '../components/ProximityMorphButton';
 import { debounce, setupBreakpoints } from '../_utilities';
-gsap.registerPlugin(MotionPathPlugin, ScrollTrigger);
 
 export const home = {
     isMobile: false,

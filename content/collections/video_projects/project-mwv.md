@@ -10,11 +10,12 @@ description: |-
   For now, you can follow the project on here, but be sure to follow the MWV Climber’ Cooperative as well for community updates and events.
 client: "MWV Climbers' Cooperative"
 role:
-  - 'role::director'
-  - 'role::editor'
-  - 'role::producer'
-  - 'role::director-of-photography'
+  - director
+  - editor
+  - producer
+  - director-of-photography
 duration: '8 minutes'
 updated_by: 7775a028-954d-4a8d-9ab3-e09d457083cb
-updated_at: 1746550791
+updated_at: 1746827141
+video_field: 'https://youtu.be/jn7x995fHNo?si=mMU2WB9TsBh0IIDc'
 ---
