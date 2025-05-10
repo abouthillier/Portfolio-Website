@@ -27,17 +27,21 @@
                     <div class="group relative">
                         <!-- Project Preview -->
                         <div class="aspect-video rounded-3xl overflow-hidden bg-gray-900 hover-card">
-                            {{ preview_animation }}
-                                <video 
-                                    class="w-full h-full object-cover"
-                                    autoplay
-                                    loop
-                                    muted
-                                    playsinline
+                            {{ if preview_animation }}
+                                {{ preview_animation }}
+                                    <video 
+                                        class="w-full h-full object-cover"
+                                        autoplay
+                                        loop
+                                        muted
+                                        playsinline
                                 >
                                     <source src="{{ url }}" type="video/{{ extension }}">
                                 </video>
                             {{ /preview_animation }}
+                            {{ else }}
+                                {{ embed }}
+                            {{ /if }}
                         </div>
 
                         <!-- Project Info -->
