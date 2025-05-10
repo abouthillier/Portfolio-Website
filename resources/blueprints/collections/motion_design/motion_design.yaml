@@ -23,8 +23,12 @@ tabs:
                 - webm
                 - mp4
                 - gif
-              validate:
-                - required
+              display: 'Featured Preview'
+          -
+            handle: embed
+            field:
+              type: code
+              display: Embed
           -
             handle: description
             field:
@@ -38,10 +42,11 @@ tabs:
               type: terms
               taxonomies:
                 - software_used
-              display: Software Used
-              required: true
+              display: 'Software Used'
               mode: select
               max_items: 10
+              validate:
+                - required
           -
             handle: style_frames
             field:
@@ -55,3 +60,14 @@ tabs:
             field:
               type: link
               display: Link
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'

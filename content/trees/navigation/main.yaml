@@ -2,16 +2,16 @@ tree:
   -
     id: fca0023b-a68e-404a-9d9a-223f96c107de
     title: 'Web Development'
-    url: work/web-dev
+    url: /work/web-dev
   -
     id: fd806f26-4822-4cbb-842f-448e8effd4e3
     title: 'Motion Design'
-    url: work/motion
+    url: /work/motion
   -
     id: 95f9186e-5ec8-4ad9-9e41-6b000f4d0ca8
     title: 'Data Visualization'
-    url: work/data
+    url: /work/data
   -
     id: 280c8398-def5-4b4a-9345-12ae57e1b66d
     title: 'Video Production'
-    url: work/video
+    url: /work/video
