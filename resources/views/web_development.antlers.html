@@ -24,26 +24,39 @@
         <div class="mx-auto max-w-7xl px-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {{ collection:web_development sort="completion_date:desc" }}
-                    <div class="group relative bg-gray-900 rounded-3xl overflow-hidden hover-card transition-all duration-500">
+                    <div class="group relative bg-gray-900 rounded-3xl overflow-hidden transition-all duration-500">
                         <!-- Project Image -->
-                        <div class="aspect-video overflow-hidden">
-                            {{ featured_image }}
-                                <img src="{{ url }}" alt="{{ alt }}" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                        <a href="{{ live_url }}" target="_blank">
+                            <div class="aspect-video overflow-hidden">
+                                {{ featured_image }}
+                                    <img src="{{ url }}" alt="{{ alt }}" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
                             {{ /featured_image }}
-                        </div>
+                            </div>
+                        </a>
 
                         <!-- Project Info -->
                         <div class="p-8">
                             <h2 class="text-2xl font-bold text-white mb-4 font-oxanium">{{ title }}</h2>
                             <div class="flex flex-wrap gap-2 mb-4">
-                                {{ technologies }}
-                                    <span class="px-3 py-1 bg-cyan-500/10 text-cyan-400 rounded-full text-sm">{{ value }}</span>
-                                {{ /technologies }}
+                                {{ platform }}
+                                    <span class="px-3 py-1 bg-emerald-500/10 text-emerald-400 rounded-full text-xs font-bold">
+                                        {{ title }}
+                                    </span>
+                                {{ /platform }}
                             </div>
-                            <p class="text-gray-400 mb-6">{{ description | truncate:150 }}</p>
+                            {{ if technologies }}
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    {{ technologies }}
+                                        <span class="px-3 py-1 bg-cyan-500/10 text-cyan-400 rounded-full text-xs font-bold">
+                                            {{ value }}
+                                        </span>
+                                    {{ /technologies }}
+                                </div>
+                            {{ /if }}
+                            <p class="text-gray-400 mb-6">{{ description }}</p>
                             
                             <!-- Links -->
-                            <div class="flex gap-4">
+                            <div class="flex gap-4 mt-4">
                                 {{ if github_url }}
                                     <a href="{{ github_url }}" target="_blank" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 transition-colors">
                                         <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">

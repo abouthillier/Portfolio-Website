@@ -24,7 +24,7 @@
         <!-- Scripts -->
         <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     </body>
-    {{ if template != 'home' }}
+    {{ if template != 'home' && template != 'default' }}
         {{ partial:footer }}
     {{ /if }}
 </html>

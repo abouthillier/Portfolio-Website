@@ -20,3 +20,37 @@ fields:
       type: template
       display: Template
       localizable: true
+  -
+    handle: sections
+    field:
+      type: grid
+      display: Page Sections
+      fields:
+        -
+          handle: title
+          field:
+            type: text
+            display: Section Title
+        -
+          handle: content
+          field:
+            type: markdown
+            display: Section Content
+        -
+          handle: image
+          field:
+            type: assets
+            display: Section Image
+            max_files: 1
+            container: images
+        -
+          handle: image_alt
+          field:
+            type: text
+            display: Image Alt Text
+        -
+          handle: order
+          field:
+            type: integer
+            display: Display Order
+            default: 0

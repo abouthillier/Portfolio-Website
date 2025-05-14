@@ -1,6 +1,7 @@
-title: Page
+title: About
 tabs:
   main:
+    display: Main
     sections:
       -
         fields:
@@ -9,6 +10,8 @@ tabs:
             field:
               type: text
               required: true
+              validate:
+                - required
           -
             handle: content
             field:
@@ -28,6 +31,78 @@ tabs:
             field:
               type: template
               display: Template
+              localizable: true
+      -
+        display: 'Work History'
+        fields:
+          -
+            handle: sections
+            field:
+              type: grid
+              display: 'Page Sections'
+              fields:
+                -
+                  handle: title
+                  field:
+                    type: text
+                    display: 'Section Title'
+                    validate:
+                      - required
+                -
+                  handle: content
+                  field:
+                    type: markdown
+                    display: 'Section Content'
+                    validate:
+                      - required
+                -
+                  handle: section_image
+                  field:
+                    type: assets
+                    display: 'Section Image'
+                    container: images
+                    max_files: 1
+                    required: false
+                -
+                  handle: image_alt
+                  field:
+                    type: text
+                    display: 'Image Alt Text'
+                    required: false
+                -
+                  handle: order
+                  field:
+                    type: integer
+                    display: 'Display Order'
+                    default: 0
+      -
+        display: 'Wrap Up'
+        fields:
+          -
+            handle: wrapup_header_1
+            field:
+              type: text
+              validate:
+                - required
+              display: 'Wrapup Header 1'
+          -
+            handle: wrapup_content_1
+            field:
+              type: markdown
+              display: 'Wrapup Content 1'
+              localizable: true
+          -
+            handle: wrapup_header_2
+            field:
+              type: text
+              validate:
+                - required
+              display: 'Wrapup Header 2'
+          -
+            handle: wrapup_content_2
+            field:
+              type: markdown
+              display: 'Wrapup Content 2'
               localizable: true
   sidebar:
     sections:

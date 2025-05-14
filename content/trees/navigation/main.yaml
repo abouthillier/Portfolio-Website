@@ -15,3 +15,7 @@ tree:
     id: 280c8398-def5-4b4a-9345-12ae57e1b66d
     title: 'Video Production'
     url: /work/video
+  -
+    id: 45030ea2-dff8-416a-8dff-d4df70202603
+    title: 'Who Is Alex?'
+    url: /about

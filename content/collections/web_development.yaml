@@ -1,12 +1,16 @@
 title: 'Web Development'
 template: web_development
 layout: layout
-mount: web_development
 taxonomies:
   - technologies
+  - platform
 revisions: false
 route: '/web-development/{slug}'
 sort_dir: desc
-date_behavior:
-  past_date: public
-  future_date: private 
+preview_targets:
+  -
+    label: Entry
+    url: '{permalink}'
+    refresh: true
+structure:
+  root: false

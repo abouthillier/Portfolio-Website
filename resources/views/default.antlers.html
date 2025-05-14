@@ -1,1 +1,115 @@
 {{ content }}
+
+<section class="relative bg-gray-950 text-white py-12 md:py-32 overflow-hidden">
+    <!-- Particle effect container with reduced opacity -->
+    <div id="particle-container" class="absolute inset-0 w-full h-full z-8 pointer-events-none"></div>
+
+    <!-- Blue gradient overlay -->
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent from-60% via-cyan-600 via-95% to-cyan-200"></div>
+
+    <!-- Grid background -->
+    <div class="absolute inset-0 bg-grid-pattern opacity-50"></div>
+
+    <div class="relative mx-auto max-w-6xl px-6 mt-20">
+        <!-- Main heading with highlighted word -->
+        <h1 class="text-4xl sm:text-7xl font-bold mb-6 tracking-tight font-oxanium text-center">
+            <span class="text-white/90">Who is</span>
+            <span class="bg-linear-to-r from-cyan-400 to-sky-600 text-transparent bg-clip-text">This Guy?</span>
+        </h1>
+
+        <!-- Animated Role Text -->
+        <div class="text-2xl sm:text-4xl font-bold mb-6 tracking-tight font-bitter text-center flex justify-center">
+            <span class="text-white/90 text-left">I am a </span>
+            <span class="inline-block text-cyan-400 typing-animation text-left ml-2"></span>
+        </div>
+
+        <!-- About Content -->
+        <div class="mt-16 space-y-16">
+            <!-- Introduction Section -->
+            <div class="max-w-3xl mx-auto text-center">
+                <p class="text-xl text-gray-400 leading-relaxed font-oxanium">
+                    My sweet spot is anything that bridges a sleek creative front end with a reliable and robust technical backbone, and I've made it my mission to keep learning at every step                </p>
+            </div>
+
+            <!-- Experience Section -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-16">
+                <div class="p-8 rounded-xl bg-gray-900/50 backdrop-blur-sm">
+                    <h3 class="text-2xl font-bold mb-4 font-oxanium text-cyan-400">Technical Expertise</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Specializing in modern web technologies and frameworks, I build responsive, performant applications that deliver exceptional user experiences. My development stack includes React, Node.js, and various other cutting-edge tools.
+                    </p>
+                </div>
+                <div class="p-8 rounded-xl bg-gray-900/50 backdrop-blur-sm">
+                    <h3 class="text-2xl font-bold mb-4 font-oxanium text-cyan-400">Creative Vision</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        As a motion designer, I create compelling visual narratives that bring static designs to life. My work combines technical precision with artistic flair to create memorable digital experiences.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Approach Section -->
+<section class="bg-gray-950 relative overflow-hidden">
+    <div class="absolute inset-0 bg-linear-to-r from-gray-950 to-transparent"></div>
+    
+    <div class="mx-auto relative">
+        <div class="work-history-slider relative w-full mx-auto overflow-hidden">
+            <div class="wh-slider-container relative w-full h-[600px]">
+                {{ sections }}
+                    <div class="wh-slide absolute top-0 left-0 w-full h-full opacity-0 flex flex-row items-center justify-center transition-opacity duration-800 ease-in-outS">
+                        <div class="wh-slide-content w-1/2"> 
+                            <div class="wh-slide-date text-xl text-gray-400 leading-relaxed w-2/3 mx-auto mb-4">
+                                <h3 class="text-cyan-400 font-oxanium text-xs tracking-widest uppercase text-white">My Time at:</h3>
+                            </div>
+                            <div class="wh-slide-title text-2xl font-bold font-oxanium text-cyan-400 mb-4 w-2/3 mx-auto">
+                                {{ title }}
+                            </div>
+                            <div class="wh-slide-text text-xl text-gray-400 leading-relaxed w-2/3 mx-auto">
+                                {{ content }}
+                            </div>
+                        </div>
+                        <div class="wh-slide-img-container w-1/2">
+                            <img src="{{ section_image:url }}" alt="{{ image_alt }}" class="absolute top-0 left-0 w-full h-full object-cover opacity-20 blur-sm z-[-1] grayscale" />
+                            <img src="{{ section_image:url }}" alt="{{ image_alt }}" class="rounded-xl shadow-xl" />
+                        </div>
+                    </div>
+                {{ /sections }}
+            </div>
+            <div class="wh-prev-next-container flex justify-center gap-16 absolute bottom-0 left-0 w-full z-2 mb-8">
+                <button class="wh-prev glow-button rounded-full px-8 py-4 text-lg font-medium text-white hover:bg-cyan-600 transition-colors relative overflow-hidden font-oxanium animated-link"><span class="relative z-10">Prev</span></button>
+                <button class="wh-next glow-button rounded-full px-8 py-4 text-lg font-medium text-white hover:bg-cyan-600 transition-colors relative overflow-hidden font-oxanium animated-link"><span class="relative z-10">Next</span></button>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="py-12 bg-gray-950 max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+        <div class="mx-auto max-w-6xl px-6 bg-gray-900/50 backdrop-blur-sm rounded-xl p-8">
+            <h2 class="text-2xl font-bold font-oxanium text-cyan-400 mb-4">
+                {{ wrapup_header_1 }}
+            </h2>
+            <div class="text-xl text-gray-400 leading-relaxed">
+                {{ wrapup_content_1 }}
+            </div>
+        </div>
+        
+        <div class="mx-auto max-w-6xl px-6 bg-gray-900/50 backdrop-blur-sm rounded-xl p-8">
+            <h2 class="text-2xl font-bold font-oxanium text-cyan-400 mb-4">
+                {{ wrapup_header_2 }}
+            </h2>
+            <div class="text-xl text-gray-400 leading-relaxed">
+                {{ wrapup_content_2 }}
+            </div>
+        </div>
+    </div>
+    <div class="mx-auto max-w-4xl px-6 mt-16 text-center">
+        <h2 class="text-2xl font-bold font-oxanium text-cyan-400">
+            <span class="text-white/90">Turns out, teaching climbing and guiding a kayak trip both sharpen the same skills I use every day:</span>
+            <span class="bg-linear-to-r from-cyan-400 to-sky-600 text-transparent bg-clip-text">patience, clear communication, and a healthy respect for unexpected bumps in the trail.</span>
+        </h2>
+    </div>
+</section>
+
+{{ partial:contact }}

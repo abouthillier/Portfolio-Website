@@ -289,3 +289,31 @@
 form input, form textarea {
     width: 100%;
 }
+
+/* Animated Text Styles */
+.typing-animation {
+    display: inline-block;
+    /* min-width: 200px; */
+    height: 1.5em;
+    overflow: hidden;
+    position: relative;
+}
+
+.typing-animation::after {
+    content: '|';
+    position: absolute;
+    right: -4px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+
+.wh-slide.active {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 2;
+}
