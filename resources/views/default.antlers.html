@@ -1,5 +1,3 @@
-{{ content }}
-
 <section class="relative bg-gray-950 text-white py-12 md:py-32 overflow-hidden">
     <!-- Particle effect container with reduced opacity -->
     <div id="particle-container" class="absolute inset-0 w-full h-full z-8 pointer-events-none"></div>
@@ -57,7 +55,7 @@
     <div class="mx-auto relative">
         <div class="work-history-slider relative w-full mx-auto overflow-hidden">
             <div class="wh-slider-container relative w-full h-[600px]">
-                {{ sections }}
+                {{ work_sections }}
                     <div class="wh-slide absolute top-0 left-0 w-full h-full opacity-0 flex flex-row items-center justify-center transition-opacity duration-800 ease-in-outS">
                         <div class="wh-slide-content w-1/2"> 
                             <div class="wh-slide-date text-xl text-gray-400 leading-relaxed w-2/3 mx-auto mb-4">
@@ -75,7 +73,7 @@
                             <img src="{{ section_image:url }}" alt="{{ image_alt }}" class="rounded-xl shadow-xl" />
                         </div>
                     </div>
-                {{ /sections }}
+                {{ /work_sections }}
             </div>
             <div class="wh-prev-next-container flex justify-center gap-16 absolute bottom-0 left-0 w-full z-2 mb-8">
                 <button class="wh-prev glow-button rounded-full px-8 py-4 text-lg font-medium text-white hover:bg-cyan-600 transition-colors relative overflow-hidden font-oxanium animated-link"><span class="relative z-10">Prev</span></button>

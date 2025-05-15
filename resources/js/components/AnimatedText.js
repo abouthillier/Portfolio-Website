@@ -9,12 +9,7 @@ export default class AnimatedText {
             'Father',
             'Husband',
             'Friend',
-            'Rock Climber',
-            'Mountain Biker',
-            'Kayaker',
-            'Adventurer',
             'Explorer'
-
         ];
         this.currentIndex = 0;
         this.element = document.querySelector('.typing-animation');
