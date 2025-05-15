@@ -45,6 +45,9 @@
                 </div>
             </div>
         </div>
+        <div class="mx-auto md:w-1/3 w-2/3 mb-[-20%] mt-[-5%] z-8 relative">
+            <img src="/assets/headshot-circle.png" alt="About Me Photo" class="">
+        </div>
     </div>
 </section>
 
@@ -54,21 +57,21 @@
     
     <div class="mx-auto relative">
         <div class="work-history-slider relative w-full mx-auto overflow-hidden">
-            <div class="wh-slider-container relative w-full h-[800px] md:h-[600px]">
+            <div class="wh-slider-container relative w-full h-[1000px] lg:h-[600px]">
                 {{ work_sections }}
-                    <div class="wh-slide absolute top-0 left-0 w-full h-full opacity-0 flex flex-col md:flex-row items-center justify-center transition-opacity duration-800 ease-in-outS">
-                        <div class="wh-slide-content p-8 md:p-0 w-full md:w-1/2"> 
-                            <div class="wh-slide-date text-xl text-gray-400 leading-relaxed md:w-2/3 mx-auto mb-4">
+                    <div class="wh-slide absolute top-0 left-0 w-full h-full opacity-0 flex flex-col lg:flex-row items-center justify-center transition-opacity duration-800 ease-in-out">
+                        <div class="wh-slide-content p-8 lg:p-0 w-full lg:w-1/2"> 
+                            <div class="wh-slide-date text-xl text-gray-400 leading-relaxed lg:w-2/3 mx-auto mb-4">
                                 <h3 class="text-cyan-400 font-oxanium text-xs tracking-widest uppercase text-white">My Time at:</h3>
                             </div>
-                            <div class="wh-slide-title text-2xl font-bold font-oxanium text-cyan-400 mb-4 w-full md:w-2/3 mx-auto">
+                            <div class="wh-slide-title text-2xl font-bold font-oxanium text-cyan-400 mb-4 w-full lg:w-2/3 mx-auto">
                                 {{ title }}
                             </div>
-                            <div class="wh-slide-text text-base md:text-xl text-gray-400 leading-relaxed w-full md:w-2/3 mx-auto">
+                            <div class="wh-slide-text text-base md:text-xl text-gray-400 leading-relaxed w-full lg:w-2/3 mx-auto">
                                 {{ content }}
                             </div>
                         </div>
-                        <div class="wh-slide-img-container w-full md:w-1/2">
+                        <div class="wh-slide-img-container w-full lg:w-1/2">
                             <img src="{{ section_image:url }}" alt="{{ image_alt }}" class="absolute top-0 left-0 w-full h-full object-cover opacity-20 blur-sm z-[-1] grayscale" />
                             <img src="{{ section_image:url }}" alt="{{ image_alt }}" class="rounded-xl shadow-xl" />
                         </div>
