@@ -7,8 +7,15 @@
                 Alex<span class="text-cyan-400">B</span>
             </a>
 
-            <!-- Main Navigation (Statamic) -->
-            <ul class="flex items-center space-x-8">
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="lg:hidden text-gray-400 hover:text-white focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+
+            <!-- Main Navigation (Statamic) - Desktop -->
+            <ul class="hidden lg:flex items-center space-x-8">
                 {{ nav:main }}
                     <li>
                         <a 
@@ -24,16 +31,52 @@
                 {{ /nav:main }}
             </ul>
 
-            <!-- Contact Button -->
+            <!-- Contact Button - Desktop -->
             <a 
                 href="/#contact-section" 
-                class="glow-button px-6 py-2 rounded-full bg-cyan-500 text-white hover:bg-cyan-600 transition-colors font-oxanium"
+                class="hidden lg:block glow-button px-6 py-2 rounded-full bg-cyan-500 text-white hover:bg-cyan-600 transition-colors font-oxanium"
             >
                 Contact
             </a>
         </nav>
     </div>
+
+    <!-- Mobile Menu - Hidden by default -->
+    <div id="mobile-menu" class="hidden lg:hidden px-6 pb-6 bg-gray-950/95 backdrop-blur-lg border-b border-gray-800/50">
+        <ul class="space-y-4">
+            {{ nav:main }}
+                <li>
+                    <a 
+                        href="{{ url }}" 
+                        class="block py-2 text-lg font-oxanium {{ if is_current }}text-cyan-400{{ else }}text-gray-400 hover:text-white{{ /if }} transition-colors"
+                    >
+                        {{ title }}
+                    </a>
+                </li>
+            {{ /nav:main }}
+            <li class="pt-2">
+                <a 
+                    href="/#contact-section" 
+                    class="inline-block glow-button px-6 py-2 rounded-full bg-cyan-500 text-white hover:bg-cyan-600 transition-colors font-oxanium"
+                >
+                    Contact
+                </a>
+            </li>
+        </ul>
+    </div>
 </header>
 
 <!-- Spacer to prevent content from hiding under fixed header -->
-<div class="h-20"></div> 
+<div class="h-20"></div>
+
+<!-- Mobile Menu JavaScript -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+    });
+</script> 

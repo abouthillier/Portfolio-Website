@@ -29,14 +29,13 @@ work_sections:
     section_image: firefox_pcxbgnk67m.jpg
   -
     id: 6QgCp0TD
-    title: 'WLNE (ABC 6 News)'
+    title: 'WLNE-TV (ABC 6 News)'
     content: 'At ABC6, our signal frequency was my playground—well, a very fast-paced, deadline-driven playground. I scripted, shot, and edited commercials for local shops and national brands, all while keeping cool when the next breaking story hit. Partnering with business dev and management meant quick pivots (thanks, pandemic), and I learned to deliver broadcast-ready assets on a dime—motion graphics, promos, and more—faster than a breaking-news crawl.'
     image_alt: 'WLNE Experience'
     order: 3
     section_image: firefox_iiieykxddg.jpg
 wrapup_header_1: 'What Else?'
-wrapup_content_1: "When I'm not working on client projects, I still chase that 'what-if' spark: tinkering with deep-learning experiments, using a Raspberry Pi to solve a problem I can't find an easy solution for, or prototyping models and 3D simulations in Blender. Between commits and client calls, I can't get enough."
+wrapup_content_1: "When I'm not working on client projects, I still a tinker-er at heart: tinkering with deep-learning experiments, using a Raspberry Pi to solve a problem I can't find a ready-made solution for, or building 3D simulations in Blender. Between commits and client calls, I can't get enough."
 wrapup_header_2: 'Life AFK'
-wrapup_content_2: "Off the clock, you'll find me adventuring away from my desk with my family and friends at local climbing crags, exploring a new singletrack, or roasting s'mores under the stars. In fact, those actually trace back to my earlier 'day jobs': I spent four years at Rock Spot Climbing as a shift supervisor and climbing instructor, and another seven guiding kayaking and paddleboarding for L.L.Bean."
-test_field: 'Hello from about!'
+wrapup_content_2: "Off the clock, you'll find me adventuring away from my desk with my family and friends at local climbing crags, exploring a new singletrack, or roasting s'mores under the stars. In fact, those actually trace back to my earlier career pursuits guiding kayaking, paddleboarding, and rock climbing."
 ---

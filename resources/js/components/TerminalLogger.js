@@ -28,6 +28,11 @@ export default class TerminalLogger {
     resize() {
         this.canvas.width = this.container.clientWidth;
         this.canvas.height = this.container.clientHeight;
+        if (this.canvas.width < 400) {
+            this.fontSize = 16;
+        } else {
+            this.fontSize = 20;
+        }
         this.ctx.font = `${this.fontSize}px 'Fira Code', monospace`;
     }
     
@@ -76,12 +81,6 @@ export default class TerminalLogger {
     animate() {
         this.ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
-        
-        // // Draw terminal header
-        // this.ctx.fillStyle = '#2d2d2d';
-        // this.ctx.fillRect(0, 0, this.canvas.width, this.lineHeight + this.padding);
-        // this.ctx.fillStyle = '#00ff00';
-        // this.ctx.fillText('Terminal Logger v1.0.0', this.padding, this.lineHeight);
         
         // Draw lines
         this.ctx.fillStyle = 'rgba(0, 255, 255, 0.8)';
