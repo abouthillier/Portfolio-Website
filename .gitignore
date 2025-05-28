@@ -6,6 +6,7 @@
 /public/vendor/statamic
 /storage/*.key
 /storage/pail
+/storage/forms/contact_me
 /vendor
 .env
 .env.backup
