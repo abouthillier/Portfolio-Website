@@ -13,7 +13,7 @@ git clean -fd --exclude=deploy.sh
 git pull origin main
 
 # Install dependencies
-sudo -u www-data composer install --no-interaction --no-dev --optimize-autoloader
+sudo composer install --no-interaction --no-dev --optimize-autoloader
 # rm -rf node_modules
 # sudo -u www-data npm ci
 
