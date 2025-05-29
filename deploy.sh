@@ -36,8 +36,8 @@ php artisan route:clear
 php artisan migrate --force
 
 # Set permissions
-chown -R www-data:www-data storage bootstrap/cache public/build
-chmod -R 775 storage bootstrap/cache public/build
+# chown -R www-data:www-data storage bootstrap/cache public/build
+# chmod -R 775 storage bootstrap/cache public/build
 
 # Log completion
 echo "Deployment completed successfully" 
