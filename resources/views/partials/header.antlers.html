@@ -20,7 +20,7 @@
                     <li>
                         <a 
                             href="{{ url }}" 
-                            class="group flex items-center text-lg font-oxanium {{ if is_current }}text-cyan-400{{ else }}text-gray-400 hover:text-white{{ /if }} transition-colors"
+                            class="group flex items-center text-lg font-oxanium {{if title == 'Who Is Alex?'}}font-bold text-white animated-link{{/if}} {{ if is_current }}text-cyan-400{{ else }}text-gray-400 hover:text-white{{ /if }} transition-colors"
                         >
                             {{ title }}
                             {{ if is_current }}
