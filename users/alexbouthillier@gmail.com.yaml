@@ -6,3 +6,10 @@ preferences:
   collections:
     pages:
       after_save: continue_editing
+  forms:
+    contact_me:
+      columns:
+        - datestamp
+        - email
+        - form_message
+        - name

@@ -8,5 +8,7 @@ platform:
   - webflow
 live_url: 'https://oyster-farm-productions.webflow.io/'
 updated_by: 7775a028-954d-4a8d-9ab3-e09d457083cb
-updated_at: 1746888080
+updated_at: 1749655440
+technologies:
+  - lottie
 ---
