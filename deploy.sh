@@ -9,7 +9,7 @@ cd /var/www/Portfolio-Website
 
 # Reset and pull latest changes
 git reset --hard HEAD
-git clean -fd --exclude=deploy.sh
+git clean -fd --exclude=deploy.sh --exclude=storage/forms/contact_me
 git pull origin main
 
 # Install dependencies
