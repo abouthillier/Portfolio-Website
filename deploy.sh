@@ -14,12 +14,8 @@ git pull origin main
 
 # Install dependencies
 sudo composer install --no-interaction --no-dev --optimize-autoloader
-# rm -rf node_modules
-# sudo -u www-data npm ci
 
-# # Build assets
-# rm -rf public/build
-# mkdir -p public/build
+# Build assets
 sudo -u www-data npm run build
 
 # Verify build
@@ -34,10 +30,6 @@ php artisan config:clear
 php artisan view:clear
 php artisan route:clear
 php artisan migrate --force
-
-# Set permissions
-# chown -R www-data:www-data storage bootstrap/cache public/build
-# chmod -R 775 storage bootstrap/cache public/build
 
 # Log completion
 echo "Deployment completed successfully" 
