@@ -2,12 +2,11 @@ import ParticleEffect from '../components/ParticleEffect';
 import ProximityGlow from '../components/ProximityGlow';
 import ContactForm from '../components/ContactForm';
 import gsap from "gsap";
-import { MotionPathPlugin, ScrollTrigger } from "gsap/all";
 import MatrixConsole from '../components/MatrixConsole';
 import TerminalLogger from '../components/TerminalLogger';
 import MotionEffect from '../components/MotionEffect';
 import ProximityMorphButton from '../components/ProximityMorphButton';
-import { debounce, setupBreakpoints } from '../_utilities';
+import { setupBreakpoints } from '../_utilities';
 
 export const home = {
     isMobile: false,

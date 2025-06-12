@@ -1,6 +1,5 @@
 import { gsap } from "gsap";
 import { CustomEase } from "gsap/CustomEase";
-import { MorphSVGPlugin } from "gsap/MorphSVGPlugin";
 
 const EASES = [
   "power1.inOut", "power2.inOut", "power3.inOut", "power4.inOut",

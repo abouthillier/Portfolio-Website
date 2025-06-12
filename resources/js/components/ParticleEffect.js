@@ -1,5 +1,3 @@
-// resources/js/components/ParticleEffect.js
-
 export default class ParticleEffect {
     constructor(container, options = {}) {
         this.container = container;

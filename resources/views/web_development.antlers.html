@@ -53,8 +53,9 @@
                                     {{ /technologies }}
                                 </div>
                             {{ /if }}
-                            <p class="text-gray-400 mb-6">{{ description }}</p>
-                            
+                            <div class="text-gray-400 mb-6 prose prose-invert prose-a:text-cyan-400 prose-a:no-underline">
+                                {{ description }}
+                            </div>
                             <!-- Links -->
                             <div class="flex gap-4 mt-4">
                                 {{ if github_url }}
