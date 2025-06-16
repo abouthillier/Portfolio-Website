@@ -134,10 +134,10 @@ export const home = {
 
                 // Track mouse movement
                 category.addEventListener('mousemove', (e) => {
-                    const rect = category.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
+                    const x = e.clientX;
+                    const y = e.clientY;
                     terminalLogger.logMousePosition(x, y);
+                    terminalLogger.animate();
                 });
             }
         });
