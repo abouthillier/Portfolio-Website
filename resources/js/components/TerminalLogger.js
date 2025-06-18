@@ -136,6 +136,6 @@ export default class TerminalLogger {
             }
         }
         
-        requestAnimationFrame(() => this.animate());
+        // requestAnimationFrame(() => this.animate());
     }
 } 
