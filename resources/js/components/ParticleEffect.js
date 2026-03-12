@@ -39,7 +39,7 @@ export default class ParticleEffect {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             const logoPaths = await response.json();
-            // console.log('API returned logo paths:', logoPaths);
+            console.log('API returned logo paths:', logoPaths);
 
             if (!Array.isArray(logoPaths) || logoPaths.length === 0) {
                 throw new Error('No logo paths returned from API');

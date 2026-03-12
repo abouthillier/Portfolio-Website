@@ -17,7 +17,14 @@ export default defineConfig({
         include: ['three']
     },
     server: {
+        host: true,
         port: 5174,
         strictPort: true,
+        hmr: {
+            protocol: 'ws',
+            host: 'localhost',
+            port: 5174,
+            clientPort: 5174,
+        },
     }
 });
