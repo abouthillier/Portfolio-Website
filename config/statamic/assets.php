@@ -112,7 +112,9 @@ return [
         |
         */
 
-        'generate_presets_on_upload' => true,
+        // Avoid failing the entire upload request when a file can't be decoded
+        // by the image driver during preset generation.
+        'generate_presets_on_upload' => false,
 
     ],
 
