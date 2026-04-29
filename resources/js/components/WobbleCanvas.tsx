@@ -66,8 +66,20 @@ void main() {
   float echoDist = length(vUv - u_echoCenter);
   float rippleBand = abs(fract(echoDist * 12.0 - u_echoTime * 2.8) - 0.5);
   float ripple = (1.0 - smoothstep(0.08, 0.18, rippleBand)) * exp(-echoDist * 6.0) * u_echoAmp;
-  float alpha = (lineMask * 0.8 + glow + ripple * 0.55) * u_alpha;
-  gl_FragColor = vec4(u_color, alpha);
+  float fxAlpha = (lineMask * 0.8 + glow + ripple * 0.55) * u_alpha;
+
+  // Tailwind-equivalent vertical overlay:
+  // from-transparent from-50% via-cyan-600 via-95% to-cyan-200
+  vec3 cyan600 = vec3(0.031, 0.569, 0.698);
+  vec3 cyan200 = vec3(0.647, 0.953, 0.988);
+  float gradientAlpha = smoothstep(0.5, 0.95, vUv.y);
+  float gradientMix = smoothstep(0.95, 1.0, vUv.y);
+  vec3 gradientColor = mix(cyan600, cyan200, gradientMix);
+
+  float clampedFx = clamp(fxAlpha, 0.0, 1.0);
+  vec3 finalColor = min(gradientColor + (u_color * clampedFx), vec3(1.0));
+  float finalAlpha = max(gradientAlpha, fxAlpha);
+  gl_FragColor = vec4(finalColor, finalAlpha);
 }
 `
 
