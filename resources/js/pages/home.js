@@ -12,8 +12,6 @@ export const home = {
     isMobile: false,
 
     init() {
-        console.log('Home page initialized');
-
         // Use callback pattern for breakpoints
         setupBreakpoints((isMobile) => {
             home.isMobile = isMobile;
@@ -25,12 +23,35 @@ export const home = {
         this.initCapabilitiesSection();
         this.initContactForm();
     },
-    
+
     initHeroSection() {
+        void this.initWobbleCanvas();
         this.initParticleEffect();
         this.initProximityMorphButton();
 
         this.initParallaxEffect();
+        this.initHeadingMouseEffect();
+    },
+
+    async initWobbleCanvas() {
+        const root = document.getElementById('wobble-canvas-root');
+        if (!root) return;
+        const { mountWobbleHome } = await import('../components/mountWobbleHome');
+        mountWobbleHome(root);
+    },
+
+    initHeadingMouseEffect() {
+        const heading = document.querySelector('.name');
+        if (heading) {
+            document.body.addEventListener('mousemove', (e) => {
+                const x = (e.clientX / window.innerWidth) * 100;
+                const y = (e.clientY / window.innerHeight) * 100;
+
+                // style the gradient over the text to follow the mouse
+                const gradientString = `radial-gradient(circle at ${x}% ${y}%, oklch(.789 .154 211.53) 0%, oklch(.588 .158 241.966) 50%)`;
+                heading.querySelector('span:nth-child(2)').style.backgroundImage = gradientString;
+            });
+        }
     },
 
     initParallaxEffect() {
@@ -71,7 +92,7 @@ export const home = {
             new ProximityGlow(button);
         });
     },
-    
+
     initProximityMorphButton() {
         const ctaButton = document.getElementById('scroll-cta');
         if (ctaButton) {
@@ -98,7 +119,8 @@ export const home = {
                 nodeCount: 40,
                 lineDistance: 200,
                 useLogos: true,
-                logoSize: 40
+                logoSize: 40,
+                heightScale: 1.2,
             });
         }
     },
@@ -107,20 +129,20 @@ export const home = {
 
         // Initialize typewriter effect
         document.querySelectorAll('.work-category.web-dev').forEach(category => {
-    
+
             // Create terminal container
             const terminalContainer = document.querySelector('.terminal-container');
             const effectBg = category.querySelector('.effect-bg');
-            
-            
+
+
             if (this.isMobile && effectBg) {
                 const mobileLogger = new TerminalLogger(effectBg);
                 window.addEventListener('deviceorientation', (event) => {
                     mobileLogger.logDeviceOrientation(event.alpha, event.beta, event.gamma);
                 });
-                
+
             } else {
-                
+
                 const terminalLogger = new TerminalLogger(terminalContainer);
                 // Start animation on hover
                 category.addEventListener('mouseenter', () => {
@@ -142,24 +164,24 @@ export const home = {
             }
         });
     },
-    
+
     initMotionCategoryEffects() {
         document.querySelectorAll('.work-category.motion').forEach(category => {
             const motionContainer = document.querySelector('.motion-container');
             const effectBg = category.querySelector('.effect-bg');
-            
+
             if (this.isMobile && effectBg) {
                 const mobileEffect = new MotionEffect(effectBg, 4);
                 mobileEffect.start();
             } else {
-    
+
                 const motionEffect = new MotionEffect(motionContainer, 15);
-    
+
                 category.addEventListener('mouseenter', () => {
                     motionContainer.classList.add('opacity-100');
                     motionEffect.start();
                 });
-    
+
                 category.addEventListener('mouseleave', () => {
                     motionContainer.classList.remove('opacity-100');
                     motionEffect.stop();
@@ -173,16 +195,16 @@ export const home = {
         document.querySelectorAll('.work-category.data').forEach(category => {
             const matrixContainer = document.querySelector('.matrix-container');
             const effectBg = category.querySelector('.effect-bg');
-    
+
             if (this.isMobile && effectBg) {
                 const mobileMatrix = new MatrixConsole(effectBg);
             } else {
                 const matrixConsole = new MatrixConsole(matrixContainer);
-                
+
                 category.addEventListener('mouseenter', () => {
                     matrixContainer.classList.add('opacity-100');
                 });
-    
+
                 category.addEventListener('mouseleave', () => {
                     matrixContainer.classList.remove('opacity-100');
                 });
@@ -196,7 +218,7 @@ export const home = {
         document.querySelectorAll('.work-category.video').forEach(category => {
             const video = document.querySelector('video');
             const effectBg = category.querySelector('.effect-bg');
-    
+
             if (this.isMobile && effectBg) {
                 // Clone video and append to effect background
                 const clonedVideo = video.cloneNode(true);

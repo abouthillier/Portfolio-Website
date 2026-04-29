@@ -9,6 +9,7 @@ export default class ParticleEffect {
         this.mouse = { x: null, y: null, radius: 120 };
         this.nodeCount = options.nodeCount || 80;
         this.lineDistance = options.lineDistance || 140;
+        this.heightScale = options.heightScale !== undefined ? options.heightScale : 1.4;
         this.useLogos = options.useLogos || false;
         this.logoSize = options.logoSize || 32;
         this.logos = [];
@@ -49,13 +50,13 @@ export default class ParticleEffect {
             const loadPromises = logoPaths.map(path => {
                 return new Promise((resolve) => {
                     const img = new Image();
-                    
+
                     img.onload = () => {
                         // console.log(`Successfully loaded logo: ${path}`);
                         this.logoImages.push(img);
                         resolve();
                     };
-                    
+
                     img.onerror = (error) => {
                         console.error(`Failed to load logo: ${path}`, error);
                         resolve(); // Resolve anyway to continue loading other logos
@@ -70,9 +71,9 @@ export default class ParticleEffect {
 
             // Wait for all images to load (or fail)
             await Promise.all(loadPromises);
-            
+
             // console.log(`Successfully loaded ${this.logoImages.length} logos`);
-            
+
             // If no logos loaded successfully, throw an error
             if (this.logoImages.length === 0) {
                 throw new Error('No logos were loaded successfully');
@@ -85,13 +86,13 @@ export default class ParticleEffect {
 
     resize() {
         this.canvas.width = this.container.offsetWidth;
-        this.canvas.height = this.container.offsetHeight;
+        this.canvas.height = this.container.offsetHeight * this.heightScale;
     }
 
     initNodes() {
         this.nodes = [];
         const nodeCount = this.useLogos ? Math.min(this.nodeCount, this.logoImages.length) : this.nodeCount;
-        
+
         for (let i = 0; i < nodeCount; i++) {
             const node = {
                 x: Math.random() * this.canvas.width,
@@ -165,8 +166,8 @@ export default class ParticleEffect {
                 this.ctx.globalAlpha = glow ? 0.9 : 0.3;
                 this.ctx.drawImage(
                     node.logo,
-                    node.x - size/2,
-                    node.y - size/2,
+                    node.x - size / 2,
+                    node.y - size / 2,
                     size,
                     size
                 );
