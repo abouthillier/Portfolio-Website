@@ -24,6 +24,13 @@ if [ ! -f "public/build/manifest.json" ]; then
     exit 1
 fi
 
+# Statamic CP writes flat-file content and blueprints as www-data
+for dir in content users storage resources/blueprints; do
+  chown -R www-data:www-data "$dir"
+  find "$dir" -type d -exec chmod 775 {} \;
+  find "$dir" -type f -exec chmod 664 {} \;
+done
+
 # Clear caches and run migrations
 php artisan cache:clear
 php artisan config:clear

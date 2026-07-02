@@ -6,6 +6,10 @@ preferences:
   collections:
     pages:
       after_save: continue_editing
+    web_development:
+      view: tree
+    data_projects:
+      view: list
   forms:
     contact_me:
       columns:

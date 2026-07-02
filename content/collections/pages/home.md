@@ -38,13 +38,13 @@ capabilities:
     id: magv3jg9
     title: Development
     description: 'Full-stack web developer with expertise in modern JavaScript, PHP, Python, and CMS integration, building scalable and maintainable digital products.'
-    icon: generic-field
+    icon: fieldtype-code
     color: text-emerald-400
   -
     id: magv3heh
     title: Strategy
     description: 'Experienced in digital strategy, project management, and analytics, with a focus on delivering measurable results and aligning business goals with user needs.'
-    icon: pages
+    icon: page
     color: text-cyan-400
   -
     id: magv3i8w

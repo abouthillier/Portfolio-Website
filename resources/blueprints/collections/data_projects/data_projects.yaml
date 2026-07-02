@@ -17,32 +17,37 @@ sections:
           container: assets
           max_files: 1
           mode: grid
-          required: true
+          display: 'Featured Visualization'
+          instructions: 'Screenshot or chart hero image. Can be added later.'
       -
         handle: description
         field:
           type: markdown
           display: Description
-          required: true
+          instructions: '2–4 sentences, first person — what data problem this solves.'
+          validate:
+            - required
       -
         handle: tools_used
         field:
           type: terms
           taxonomies:
             - tools_used
-          display: Tools & Technologies
-          required: true
+          display: 'Tools & Technologies'
       -
         handle: data_source
         field:
-          type: text
-          display: Data Source
-          required: true
+          type: markdown
+          display: 'Data Source'
+          instructions: 'Short bullet list of inputs (APIs, files, logs, sensors).'
+          validate:
+            - required
       -
         handle: key_findings
         field:
           type: grid
-          display: Key Findings
+          display: 'Key Findings'
+          instructions: '2–3 rows max. Each row is a data insight or pipeline capability, not a feature tour.'
           add_row: 'Add Finding'
           fields:
             -
@@ -62,9 +67,11 @@ sections:
                 container: assets
                 max_files: 1
                 mode: grid
+                display: Visualization
+                instructions: 'Optional chart or screenshot for this finding.'
       -
         handle: methodology
         field:
           type: markdown
           display: Methodology
-          required: true 
+          instructions: '3–5 bullets: ingestion, storage, aggregation, visualization.'

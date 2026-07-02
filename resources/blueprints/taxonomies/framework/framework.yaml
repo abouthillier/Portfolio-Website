@@ -1,0 +1,45 @@
+title: Framework
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+              listable: true
+          -
+            handle: logo
+            field:
+              type: assets
+              display: Logo
+              container: assets
+              folder: logos
+              max_files: 1
+              mode: grid
+              restrict: true
+              allowed_types:
+                - svg
+          -
+            handle: color_field
+            field:
+              type: color
+              display: 'Color Field'
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              required: true
+              validate:
+                - required
+                - 'max:200'

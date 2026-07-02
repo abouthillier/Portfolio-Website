@@ -37,15 +37,26 @@
                             <h2 class="text-3xl font-bold text-white mb-4 font-oxanium">{{ title }}</h2>
                             <div class="flex flex-wrap gap-2 mb-6">
                                 {{ tools_used }}
-                                    <span class="px-3 py-1 bg-cyan-500/10 text-cyan-400 rounded-full text-sm">{{ value }}</span>
+                                    <span
+                                        class="inline-flex items-center gap-1.5 p-3 py-1 rounded-full text-xs font-bold{{ unless color_field }} border border-gray-500/30 bg-gray-500/10 text-gray-300{{ /unless }}"
+                                        {{ if color_field }}style="background-color: {{ color_field }}1a; color: {{ color_field }}; border: 1px solid {{ color_field }};"{{ /if }}>
+                                        {{ if logo }}
+                                        <img src="{{ logo:url }}" alt="{{ title }} logo" class="size-[16px] shrink-0"{{ if slug == 'express' || slug == 'tailscale' }} style="filter: brightness(0) invert(1)"{{ /if }}
+                                            aria-hidden="true" loading="lazy">
+                                        {{ /if }}
+                                        {{ title }}
+                                    </span>
                                 {{ /tools_used }}
                             </div>
                             <div class="prose prose-invert max-w-none mb-6">
                                 {{ description }}
                             </div>
-                            <div class="text-gray-400">
-                                <strong class="text-white">Data Source:</strong> {{ data_source }}
+                            {{ if data_source }}
+                            <div class="prose prose-invert max-w-none">
+                                <h3 class="text-white text-lg font-semibold mb-2">Data Source</h3>
+                                {{ data_source }}
                             </div>
+                            {{ /if }}
                         </div>
                     </div>
 
@@ -69,6 +80,7 @@
                         </div>
                     {{ /if }}
 
+                    {{ if methodology }}
                     <!-- Methodology -->
                     <div class="mt-16">
                         <h3 class="text-2xl font-bold text-white mb-6 font-oxanium">Methodology</h3>
@@ -76,6 +88,7 @@
                             {{ methodology }}
                         </div>
                     </div>
+                    {{ /if }}
                 </div>
             {{ /collection:data_projects }}
         </div>

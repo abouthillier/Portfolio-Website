@@ -1,15 +1,19 @@
 title: 'Web Development'
+icon: collections
 template: web_development
 layout: layout
 taxonomies:
   - technologies
   - platform
+  - framework
 revisions: false
 route: '/web-development/{slug}'
 sort_dir: desc
+date_behavior:
+  past: null
+  future: null
 preview_targets:
-  -
-    label: Entry
+  - label: Entry
     url: '{permalink}'
     refresh: true
 structure:
