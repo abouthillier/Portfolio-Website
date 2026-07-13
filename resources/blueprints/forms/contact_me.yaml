@@ -11,6 +11,8 @@ tabs:
               display: Name
               validate:
                 - required
+                - 'min:2'
+                - 'max:100'
               placeholder: 'Your Name'
           -
             handle: email
@@ -20,12 +22,22 @@ tabs:
               display: Email
               validate:
                 - required
+                - email
+                - 'max:255'
               placeholder: 'Your Email'
           -
             handle: form_message
             field:
               type: textarea
-              display: form-message
+              display: Message
               validate:
                 - required
+                - 'min:10'
+                - 'max:2000'
               placeholder: 'Your Message'
+          -
+            handle: turnstile
+            field:
+              type: turnstile
+              display: Verification
+              theme: dark

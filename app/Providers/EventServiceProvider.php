@@ -14,7 +14,7 @@ class EventServiceProvider extends ServiceProvider
      */
     protected $listen = [
         'Statamic\Events\FormSubmitted' => [
-            'App\Listeners\HandleContactFormSubmission',
+            'App\Listeners\RejectContactFormSpam',
         ],
     ];
 

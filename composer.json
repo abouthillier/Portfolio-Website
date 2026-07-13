@@ -14,7 +14,8 @@
         "laravel/framework": "^13.0",
         "laravel/tinker": "^3.0",
         "statamic/cms": "^6.23",
-        "statamic/ssg": "^4.0 <4.1"
+        "statamic/ssg": "^4.0 <4.1",
+        "stoffelio/statamic-turnstile": "*"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^4.0",

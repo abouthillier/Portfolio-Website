@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6316f4cd5214b32ab46170a6df9c44dd",
+    "content-hash": "d62fb1084d78966275716638bc2938a2",
     "packages": [
         {
             "name": "ajthinking/archetype",
@@ -5473,6 +5473,54 @@
                 }
             ],
             "time": "2026-02-26T17:21:13+00:00"
+        },
+        {
+            "name": "stoffelio/statamic-turnstile",
+            "version": "v1.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stoffelio/statamic-turnstile.git",
+                "reference": "30960dbdfab74771980c330625917197dfeb82a1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stoffelio/statamic-turnstile/zipball/30960dbdfab74771980c330625917197dfeb82a1",
+                "reference": "30960dbdfab74771980c330625917197dfeb82a1",
+                "shasum": ""
+            },
+            "require": {
+                "statamic/cms": "^3.0 || ^4.0 || ^5.0 || ^6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Stoffelio\\StatamicTurnstile\\ServiceProvider"
+                    ]
+                },
+                "statamic": {
+                    "name": "Statamic Turnstile",
+                    "description": "Add Cloudflare Turnstile verification to your Statamic forms"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Stoffelio\\StatamicTurnstile\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Alexander Stoffel"
+                }
+            ],
+            "description": "Add Cloudflare Turnstile verification to your Statamic forms",
+            "support": {
+                "email": "alex@stoffel.io",
+                "issues": "https://github.com/stoffelio/statamic-turnstile/issues",
+                "source": "https://github.com/stoffelio/statamic-turnstile/tree/v1.3.1"
+            },
+            "time": "2026-05-04T11:28:49+00:00"
         },
         {
             "name": "symfony/clock",

@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use Illuminate\Cache\RateLimiting\Limit;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
-use Statamic\Statamic;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -20,9 +22,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // Statamic::vite('app', [
-        //     'resources/js/cp.js',
-        //     'resources/css/cp.css',
-        // ]);
+        RateLimiter::for('statamic.forms', function (Request $request) {
+            return Limit::perMinute(3)->by('submission:'.$request->ip());
+        });
     }
 }
